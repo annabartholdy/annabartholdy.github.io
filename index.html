@@ -21,7 +21,7 @@
   }
   .wrap{max-width:var(--maxw);margin:0 auto;padding:24px 18px}
 
-  /* ===== HERO HEADER WITH BACKGROUND ===== */
+  /* Header with background */
   header{
     position:relative; overflow:hidden;
     background:url("ny-cph.jpeg") center/cover no-repeat;
@@ -54,7 +54,7 @@
     display:grid; gap:24px; grid-template-columns:1fr 240px; align-items:start;
   }
   .sidebox{
-    border:1px solid var(--line); border-radius:8px; padding:12px; /* no background */
+    border:1px solid var(--line); border-radius:8px; padding:12px;
   }
   .sidebox .logo-stack{display:flex;flex-direction:column;gap:10px;align-items:center}
   .sidebox img{max-height:64px;width:auto}
@@ -70,22 +70,22 @@
 
   /* News card */
   .news-box{
-    border:1px solid var(--line);border-radius:8px;padding:14px 16px; /* no background */
+    border:1px solid var(--line);border-radius:8px;padding:14px 16px;
     display:grid;gap:12px;grid-template-columns:84px 1fr;align-items:flex-start;
   }
   .news-thumb{width:84px;height:auto}
   @media (max-width:560px){.news-box{grid-template-columns:1fr}.news-thumb{width:120px}}
 
-  /* Scrollable publications (no background) */
+  /* Scrollable publications */
   .pubs{
     border:1px solid var(--line);border-radius:8px;padding:10px 14px;
     max-height:260px;overflow:auto;
   }
 
-  /* Research table — slim and clean */
+  /* Research table */
   table.research-table{border-collapse:collapse;width:100%;margin:8px 0 18px;border:1px solid var(--line)}
   .research-table thead th{
-    background:#fff; /* remove grey header */
+    background:#fff;
     text-transform:uppercase; font-size:12px; letter-spacing:.6px;
     padding:8px 10px; border-bottom:1px solid var(--line);
   }
@@ -109,7 +109,7 @@
 </head>
 <body>
 
-<!-- ===== HERO HEADER ===== -->
+<!-- Hero header -->
 <header>
   <div class="wrap hero">
     <div>
@@ -128,7 +128,7 @@
 
   <h1>Machine Learning in Life Science</h1>
 
-  <!-- Intro text with right-hand logo box -->
+  <!-- Intro text with logo box on the right side -->
   <div class="intro-grid">
     <div>
       <p>
@@ -155,7 +155,7 @@
       </p>
     </div>
 
-    <!-- Right-side logo + Twitter box -->
+    <!-- Right-side logo box -->
     <aside class="sidebox" aria-label="Hosts & partners">
       <div class="logo-stack">
         <img src="DTU.jpg" alt="DTU">
