@@ -6,7 +6,6 @@
 <title>Machine Learning in Life Science — MLLS</title>
 <meta name="description" content="Center for Basic Machine Learning Research in Life Science (MLLS), Copenhagen." />
 
-<!-- Minimal styles to mimic mlls.dk -->
 <style>
   :root{
     --maxw: 860px;
@@ -17,17 +16,31 @@
   html,body{margin:0;padding:0}
   body{
     font:17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color:var(--ink);
-    background:#fff;
+    color:var(--ink); background:#fff;
   }
   .wrap{max-width:var(--maxw);margin:0 auto;padding:24px 18px}
-  header{border-bottom:1px solid #e6e6e6}
-  header .title{
-    text-align:center;
-    font-weight:700;
-    padding:22px 0;
+
+  /* ===== HERO HEADER WITH BACKGROUND ===== */
+  header{
+    position:relative; overflow:hidden;
+    background:url("ny-cph.jpeg") center/cover no-repeat; /* <- your image */
+    color:#fff;
   }
-  header .subtitle{font-weight:600;margin-top:6px;font-size:15px;color:#333}
+  header::after{ /* dark overlay for readability */
+    content:""; position:absolute; inset:0;
+    background:rgba(0,0,0,.42);
+  }
+  header .hero{
+    position:relative; z-index:1;
+    min-height:280px; display:grid; place-items:center;
+    text-align:center; padding:34px 18px;
+  }
+  header .title{font-weight:700; font-size:28px; line-height:1.2}
+  header .subtitle{
+    font-weight:600; margin-top:6px; font-size:15px; opacity:.9
+  }
+
+  /* Base type */
   h1,h2,h3{line-height:1.25}
   h1{font-size:36px;margin:26px 0 8px;text-align:center}
   h2{font-size:28px;margin:28px 0 10px}
@@ -40,28 +53,48 @@
   .muted{color:var(--muted)}
   .hr{height:1px;background:#e6e6e6;margin:28px 0}
   img{max-width:100%;height:auto}
-  table{border-collapse:collapse;width:100%;margin:8px 0 18px}
-  th,td{padding:6px 6px 6px 0;vertical-align:top;border-bottom:1px solid #eee}
-  th{font-weight:700;text-align:left}
+
+  /* Logos row */
   .logos{
     display:flex;gap:22px;align-items:center;justify-content:center;flex-wrap:wrap;margin:10px 0 18px
   }
   .logos img{max-height:64px;width:auto}
   .logos img.tall{max-height:80px}
+
+  /* News card with NeurIPS logo */
   .news-box{
-    border:1px solid #e6e6e6;border-radius:8px;padding:14px 16px;background:#fafafa
+    border:1px solid #e6e6e6;border-radius:8px;padding:14px 16px;background:#fafafa; display:grid; gap:12px;
+    grid-template-columns:84px 1fr; align-items:flex-start;
   }
+  .news-thumb{width:84px;height:auto; display:block}
+  @media (max-width:560px){ .news-box{grid-template-columns:1fr} .news-thumb{width:120px} }
+
+  /* Scrollable publications */
+  .pubs{
+    border:1px solid #e6e6e6; border-radius:8px; padding:10px 14px; background:#fafafa;
+    max-height:260px; overflow:auto;
+  }
+
+  /* Contact/Team tables */
+  table{border-collapse:collapse;width:100%;margin:8px 0 18px}
+  th,td{padding:6px 6px 6px 0;vertical-align:top;border-bottom:1px solid #eee}
+  th{font-weight:700;text-align:left}
+
+  /* Footer */
   footer{border-top:1px solid #e6e6e6;margin-top:32px}
+  .footer-graphic{padding:16px 0}
+  .footer-graphic img{display:block;margin:0 auto;max-width:600px}
   footer .foot{font-size:14px;color:#333;display:flex;align-items:center;gap:12px;justify-content:center;padding:18px}
   footer .foot img{width:20px;height:20px}
 </style>
 </head>
 <body>
 
+<!-- ===== HERO HEADER ===== -->
 <header>
-  <div class="wrap">
-    <div class="title">
-      Center for Basic Machine Learning Research in Life Science
+  <div class="wrap hero">
+    <div>
+      <div class="title">Center for Basic Machine Learning Research in Life Science</div>
       <div class="subtitle">Center for Basic Machine Learning Research in Life Science</div>
     </div>
   </div>
@@ -138,10 +171,6 @@
     </thead>
     <tbody>
       <tr>
-        <td><a href="https://www1.bio.ku.dk/english/staff/?pure=en/persons/ole-winther(placeholder)" target="_blank" rel="noopener">Ole Winther</a></td>
-        <td>Hierarchical generative models, gene regulation and sequence bioinformatics. NLP and appropriate inferences.</td>
-      </tr>
-      <tr>
         <td><a href="https://research.ku.dk/search/result/?pure=en/persons/anders-krogh" target="_blank" rel="noopener">Anders Krogh</a></td>
         <td>Representation learning for gene expression data and DNA sequences. Machine learning in bioinformatics.</td>
       </tr>
@@ -161,46 +190,56 @@
         <td><a href="https://www2.compute.dtu.dk/english/staff/sohau" target="_blank" rel="noopener">Søren Hauberg</a></td>
         <td>Random geometry, uncertainty quantification, deep generative models.</td>
       </tr>
+      <tr>
+        <td><a href="https://www1.bio.ku.dk/english/staff/?pure=en/persons/ole-winther" target="_blank" rel="noopener">Ole Winther</a></td>
+        <td>Hierarchical generative models, gene regulation and sequence bioinformatics. NLP and appropriate inferences.</td>
+      </tr>
     </tbody>
   </table>
 
   <h2>News &amp; Events</h2>
   <div class="news-box">
-    <h3 style="margin-top:0">NeurIPS 2021 Meetup</h3>
-    <p class="muted">07.12.2021 – 11.12.2021</p>
-    <p>
-      This NeurIPS 2021 meetup takes place in Copenhagen aiming to act as the central meetup for this area.
-      The meetup will feature a collection of focused reading groups. PhD students within ELLIS Copenhagen may
-      get ECTS credit for joining these reading groups. If the situation allows, the meetup will be physical with
-      on-ground activities.
-    </p>
-    <p><a href="https://ellis-cph.dk/" target="_blank" rel="noopener">To news</a></p>
+    <img class="news-thumb" src="neurips.png" alt="NeurIPS logo" />  <!-- logo added -->
+    <div>
+      <h3 style="margin-top:0">NeurIPS 2021 Meetup</h3>
+      <p class="muted">07.12.2021 – 11.12.2021</p>
+      <p>
+        This NeurIPS 2021 meetup takes place in Copenhagen aiming to act as the central meetup for this area.
+        The meetup will feature a collection of focused reading groups. PhD students within ELLIS Copenhagen may
+        get ECTS credit for joining these reading groups. If the situation allows, the meetup will be physical with
+        on-ground activities.
+      </p>
+      <p><a href="https://ellis-cph.dk/" target="_blank" rel="noopener">To news</a></p>
+    </div>
   </div>
 
   <h3 style="margin-top:26px">Relevant Publications</h3>
-  <ol>
-    <li>Hauberg, S., Freifeld, O. &amp; Black, M. J. A Geometric Take on Metric Learning, NeurIPS (2012)</li>
-    <li>Sønderby, C. K., Raiko, T., Maaløe, L., Sønderby, S. K. &amp; Winther, O. Ladder variational autoencoders, NeurIPS (2016)</li>
-    <li>Boomsma, W., et&nbsp;al. A generative, probabilistic model of local protein structure. PNAS (2008)</li>
-    <li>Boomsma, W., et&nbsp;al. Equilibrium simulations of proteins using molecular fragment replacement… PNAS (2014)</li>
-    <li>Boomsma, W., Frellsen, J. Spherical convolutions… NeurIPS (2017)</li>
-    <li>Arvanitidis, G., Hansen, L. K. &amp; Hauberg, S. Latent space oddity… ICLR (2018)</li>
-    <li>Weiler, M., et&nbsp;al. 3D Steerable CNNs… NeurIPS (2018)</li>
-    <li>Mallasto, A., et&nbsp;al. Probabilistic Riemannian sub-manifold learning… AISTATS (2019)</li>
-    <li>Hauberg, S. Principal curves on Riemannian manifolds. TPAMI (2015)</li>
-    <li>Skafte, N., Jørgensen, M. &amp; Hauberg, S. Reliable training and estimation of variance networks, NeurIPS (2019)</li>
-    <li>Palm, R., Paquet, U. &amp; Winther, O. Recurrent relational networks, NeurIPS (2018)</li>
-    <li>Krogh, A., et&nbsp;al. Predicting transmembrane protein topology… J. Mol. Biol. (2001)</li>
-    <li>Armenteros, J. J. A., et&nbsp;al. SignalP 5.0… Nat. Biotechnol. (2019)</li>
-    <li>Feragen, A., et&nbsp;al. Scalable kernels for graphs… NeurIPS (2013)</li>
-    <li>Feragen, A., et&nbsp;al. Toward a theory of statistical treeshape analysis. TPAMI (2012)</li>
-    <li>Hauberg, S., et&nbsp;al. A random Riemannian metric for probabilistic shortest-path tractography, MICCAI (2015)</li>
-    <li>Navarro, A., Frellsen, J. &amp; Turner, R. The Multivariate Generalised von Mises Distribution… AAAI (2017)</li>
-    <li>Mattei, P.-A. &amp; Frellsen, J. MIWAE… ICML (2019)</li>
-    <li>Maaløe, L., et&nbsp;al. Auxiliary deep generative models, ICML (2016)</li>
-    <li>Fraccaro, M., et&nbsp;al. Sequential neural models with stochastic layers, NeurIPS (2016)</li>
-    <li>Maaløe, L., et&nbsp;al. BIVA… NeurIPS (2019)</li>
-  </ol>
+  <!-- Scrollable list wrapper -->
+  <div class="pubs">
+    <ol>
+      <li>Hauberg, S., Freifeld, O. &amp; Black, M. J. A Geometric Take on Metric Learning, NeurIPS (2012)</li>
+      <li>Sønderby, C. K., Raiko, T., Maaløe, L., Sønderby, S. K. &amp; Winther, O. Ladder variational autoencoders, NeurIPS (2016)</li>
+      <li>Boomsma, W., et&nbsp;al. A generative, probabilistic model of local protein structure. PNAS (2008)</li>
+      <li>Boomsma, W., et&nbsp;al. Equilibrium simulations of proteins using molecular fragment replacement… PNAS (2014)</li>
+      <li>Boomsma, W., Frellsen, J. Spherical convolutions… NeurIPS (2017)</li>
+      <li>Arvanitidis, G., Hansen, L. K. &amp; Hauberg, S. Latent space oddity… ICLR (2018)</li>
+      <li>Weiler, M., et&nbsp;al. 3D Steerable CNNs… NeurIPS (2018)</li>
+      <li>Mallasto, A., et&nbsp;al. Probabilistic Riemannian sub-manifold learning… AISTATS (2019)</li>
+      <li>Hauberg, S. Principal curves on Riemannian manifolds. TPAMI (2015)</li>
+      <li>Skafte, N., Jørgensen, M. &amp; Hauberg, S. Reliable training and estimation of variance networks, NeurIPS (2019)</li>
+      <li>Palm, R., Paquet, U. &amp; Winther, O. Recurrent relational networks, NeurIPS (2018)</li>
+      <li>Krogh, A., et&nbsp;al. Predicting transmembrane protein topology… J. Mol. Biol. (2001)</li>
+      <li>Armenteros, J. J. A., et&nbsp;al. SignalP 5.0… Nat. Biotechnol. (2019)</li>
+      <li>Feragen, A., et&nbsp;al. Scalable kernels for graphs… NeurIPS (2013)</li>
+      <li>Feragen, A., et&nbsp;al. Toward a theory of statistical treeshape analysis. TPAMI (2012)</li>
+      <li>Hauberg, S., et&nbsp;al. A random Riemannian metric for probabilistic shortest-path tractography, MICCAI (2015)</li>
+      <li>Navarro, A., Frellsen, J. &amp; Turner, R. The Multivariate Generalised von Mises Distribution… AAAI (2017)</li>
+      <li>Mattei, P.-A. &amp; Frellsen, J. MIWAE… ICML (2019)</li>
+      <li>Maaløe, L., et&nbsp;al. Auxiliary deep generative models, ICML (2016)</li>
+      <li>Fraccaro, M., et&nbsp;al. Sequential neural models with stochastic layers, NeurIPS (2016)</li>
+      <li>Maaløe, L., et&nbsp;al. BIVA… NeurIPS (2019)</li>
+    </ol>
+  </div>
 
   <h3>Contact MLLS Team</h3>
   <table>
@@ -231,6 +270,11 @@
 
 </main>
 
+<!-- Footer graphic (requested) -->
+<div class="footer-graphic">
+  <img src="team_reduced_inner_only.svg" alt="MLLS graphic" />
+</div>
+
 <footer>
   <div class="foot">
     <span>© <span id="y"></span> MLLS</span>
@@ -246,4 +290,3 @@
 
 </body>
 </html>
-
