@@ -15,7 +15,7 @@
   }
   html,body{margin:0;padding:0}
   body{
-    font:17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font:17px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     color:var(--ink); background:#fff;
   }
   .wrap{max-width:var(--maxw);margin:0 auto;padding:24px 18px}
@@ -23,22 +23,17 @@
   /* ===== HERO HEADER WITH BACKGROUND ===== */
   header{
     position:relative; overflow:hidden;
-    background:url("ny-cph.jpeg") center/cover no-repeat; /* <- your image */
+    background:url("ny-cph.jpeg") center/cover no-repeat;
     color:#fff;
   }
-  header::after{ /* dark overlay for readability */
-    content:""; position:absolute; inset:0;
-    background:rgba(0,0,0,.42);
-  }
+  header::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.42)}
   header .hero{
     position:relative; z-index:1;
     min-height:280px; display:grid; place-items:center;
     text-align:center; padding:34px 18px;
   }
-  header .title{font-weight:700; font-size:28px; line-height:1.2}
-  header .subtitle{
-    font-weight:600; margin-top:6px; font-size:15px; opacity:.9
-  }
+  header .title{font-weight:700;font-size:28px;line-height:1.2}
+  header .subtitle{font-weight:600;margin-top:6px;font-size:15px;opacity:.9}
 
   /* Base type */
   h1,h2,h3{line-height:1.25}
@@ -63,16 +58,16 @@
 
   /* News card with NeurIPS logo */
   .news-box{
-    border:1px solid #e6e6e6;border-radius:8px;padding:14px 16px;background:#fafafa; display:grid; gap:12px;
-    grid-template-columns:84px 1fr; align-items:flex-start;
+    border:1px solid #e6e6e6;border-radius:8px;padding:14px 16px;background:#fafafa;
+    display:grid;gap:12px;grid-template-columns:84px 1fr;align-items:flex-start;
   }
-  .news-thumb{width:84px;height:auto; display:block}
-  @media (max-width:560px){ .news-box{grid-template-columns:1fr} .news-thumb{width:120px} }
+  .news-thumb{width:84px;height:auto;display:block}
+  @media (max-width:560px){.news-box{grid-template-columns:1fr}.news-thumb{width:120px}}
 
-  /* Scrollable publications */
+  /* Scrollable publications (full text, no ellipses) */
   .pubs{
-    border:1px solid #e6e6e6; border-radius:8px; padding:10px 14px; background:#fafafa;
-    max-height:260px; overflow:auto;
+    border:1px solid #e6e6e6;border-radius:8px;padding:10px 14px;background:#fafafa;
+    max-height:260px;overflow:auto;
   }
 
   /* Contact/Team tables */
@@ -102,11 +97,12 @@
 
 <main class="wrap">
 
-  <h1>Machine Learning in Life Science</h1>
-
-  <div class="center" style="margin:10px 0 18px">
-    <img src="styr_2_small.png" alt="MLLS team photo" />
+  <!-- styr_2_small.png ABOVE the H1 -->
+  <div class="center" style="margin:22px 0 12px">
+    <img src="styr_2_small.png" alt="MLLS team photo">
   </div>
+
+  <h1>Machine Learning in Life Science</h1>
 
   <p>
     The Center for Basic Machine Learning in Life Science (MLLS) was established on January 21, 2021
@@ -132,14 +128,14 @@
   </p>
 
   <div class="logos">
-    <a href="https://www.ku.dk" target="_blank" rel="noopener"><img src="KU.png" alt="University of Copenhagen" /></a>
-    <a href="https://www.dtu.dk" target="_blank" rel="noopener"><img src="dtu_logo_green.png" alt="DTU" /></a>
-    <a href="https://datascience.novonordiskfonden.dk" target="_blank" rel="noopener"><img class="tall" src="novo.png" alt="Novo Nordisk Fonden" /></a>
+    <a href="https://www.ku.dk" target="_blank" rel="noopener"><img src="KU.png" alt="University of Copenhagen"></a>
+    <a href="https://www.dtu.dk" target="_blank" rel="noopener"><img src="dtu_logo_green.png" alt="DTU"></a>
+    <a href="https://datascience.novonordiskfonden.dk" target="_blank" rel="noopener"><img class="tall" src="novo.png" alt="Novo Nordisk Fonden"></a>
   </div>
 
   <div class="center" style="margin:8px 0 24px">
     <a href="https://twitter.com/MLLS" target="_blank" rel="noopener" title="MLLS on Twitter/X">
-      <img src="twitter_icon.png" alt="Twitter icon" style="width:28px;height:28px" />
+      <img src="twitter_icon.png" alt="Twitter icon" style="width:28px;height:28px">
     </a>
   </div>
 
@@ -199,7 +195,7 @@
 
   <h2>News &amp; Events</h2>
   <div class="news-box">
-    <img class="news-thumb" src="neurips.png" alt="NeurIPS logo" />  <!-- logo added -->
+    <img class="news-thumb" src="neurips.png" alt="NeurIPS logo">
     <div>
       <h3 style="margin-top:0">NeurIPS 2021 Meetup</h3>
       <p class="muted">07.12.2021 – 11.12.2021</p>
@@ -214,30 +210,29 @@
   </div>
 
   <h3 style="margin-top:26px">Relevant Publications</h3>
-  <!-- Scrollable list wrapper -->
   <div class="pubs">
     <ol>
-      <li>Hauberg, S., Freifeld, O. &amp; Black, M. J. A Geometric Take on Metric Learning, NeurIPS (2012)</li>
-      <li>Sønderby, C. K., Raiko, T., Maaløe, L., Sønderby, S. K. &amp; Winther, O. Ladder variational autoencoders, NeurIPS (2016)</li>
-      <li>Boomsma, W., et&nbsp;al. A generative, probabilistic model of local protein structure. PNAS (2008)</li>
-      <li>Boomsma, W., et&nbsp;al. Equilibrium simulations of proteins using molecular fragment replacement… PNAS (2014)</li>
-      <li>Boomsma, W., Frellsen, J. Spherical convolutions… NeurIPS (2017)</li>
-      <li>Arvanitidis, G., Hansen, L. K. &amp; Hauberg, S. Latent space oddity… ICLR (2018)</li>
-      <li>Weiler, M., et&nbsp;al. 3D Steerable CNNs… NeurIPS (2018)</li>
-      <li>Mallasto, A., et&nbsp;al. Probabilistic Riemannian sub-manifold learning… AISTATS (2019)</li>
-      <li>Hauberg, S. Principal curves on Riemannian manifolds. TPAMI (2015)</li>
-      <li>Skafte, N., Jørgensen, M. &amp; Hauberg, S. Reliable training and estimation of variance networks, NeurIPS (2019)</li>
-      <li>Palm, R., Paquet, U. &amp; Winther, O. Recurrent relational networks, NeurIPS (2018)</li>
-      <li>Krogh, A., et&nbsp;al. Predicting transmembrane protein topology… J. Mol. Biol. (2001)</li>
-      <li>Armenteros, J. J. A., et&nbsp;al. SignalP 5.0… Nat. Biotechnol. (2019)</li>
-      <li>Feragen, A., et&nbsp;al. Scalable kernels for graphs… NeurIPS (2013)</li>
-      <li>Feragen, A., et&nbsp;al. Toward a theory of statistical treeshape analysis. TPAMI (2012)</li>
-      <li>Hauberg, S., et&nbsp;al. A random Riemannian metric for probabilistic shortest-path tractography, MICCAI (2015)</li>
-      <li>Navarro, A., Frellsen, J. &amp; Turner, R. The Multivariate Generalised von Mises Distribution… AAAI (2017)</li>
-      <li>Mattei, P.-A. &amp; Frellsen, J. MIWAE… ICML (2019)</li>
-      <li>Maaløe, L., et&nbsp;al. Auxiliary deep generative models, ICML (2016)</li>
-      <li>Fraccaro, M., et&nbsp;al. Sequential neural models with stochastic layers, NeurIPS (2016)</li>
-      <li>Maaløe, L., et&nbsp;al. BIVA… NeurIPS (2019)</li>
+      <li>Hauberg, S., Freifeld, O., &amp; Black, M. J. (2012). A Geometric Take on Metric Learning. Advances in Neural Information Processing Systems (NeurIPS).</li>
+      <li>Sønderby, C. K., Raiko, T., Maaløe, L., Sønderby, S. K., &amp; Winther, O. (2016). Ladder Variational Autoencoders. Advances in Neural Information Processing Systems (NeurIPS).</li>
+      <li>Boomsma, W., Mardia, K. V., Taylor, C. C., Ferkinghoff-Borg, J., Krogh, A., &amp; Hamelryck, T. (2008). A Generative, Probabilistic Model of Local Protein Structure. Proceedings of the National Academy of Sciences (PNAS).</li>
+      <li>Boomsma, W., Frellsen, J., Harder, T., Bottaro, S., Ferkinghoff-Borg, J., &amp; Hamelryck, T. (2014). Equilibrium Simulations of Proteins Using Molecular Fragment Replacement and NMR Chemical Shifts. Proceedings of the National Academy of Sciences (PNAS).</li>
+      <li>Boomsma, W., &amp; Frellsen, J. (2017). Spherical Convolutions and Their Application in Molecular Modelling. Advances in Neural Information Processing Systems (NeurIPS).</li>
+      <li>Arvanitidis, G., Hansen, L. K., &amp; Hauberg, S. (2018). Latent Space Oddity: On the Curvature of Deep Generative Models. International Conference on Learning Representations (ICLR).</li>
+      <li>Weiler, M., Geiger, M., Welling, M., Boomsma, W., &amp; Cohen, T. (2018). 3D Steerable CNNs: Learning Rotationally Equivariant Features in Volumetric Data. Advances in Neural Information Processing Systems (NeurIPS).</li>
+      <li>Mallasto, A., Feragen, A., et al. (2019). Probabilistic Riemannian Submanifold Learning with Geodesic Brownian Motion. International Conference on Artificial Intelligence and Statistics (AISTATS).</li>
+      <li>Hauberg, S. (2015). Principal Curves on Riemannian Manifolds. IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI).</li>
+      <li>Skafte, N., Jørgensen, M., &amp; Hauberg, S. (2019). Reliable Training and Estimation of Variance Networks. Advances in Neural Information Processing Systems (NeurIPS).</li>
+      <li>Palm, R., Paquet, U., &amp; Winther, O. (2018). Recurrent Relational Networks. Advances in Neural Information Processing Systems (NeurIPS).</li>
+      <li>Krogh, A., et al. (2001). Predicting Transmembrane Protein Topology with a Hidden Markov Model: Application to Complete Genomes. Journal of Molecular Biology.</li>
+      <li>Armenteros, J. J. A., et al. (2019). SignalP 5.0 Improves Signal Peptide Predictions Using Deep Neural Networks. Nature Biotechnology.</li>
+      <li>Feragen, A., et al. (2013). Scalable Kernels for Graphs with Continuous Attributes. Advances in Neural Information Processing Systems (NeurIPS).</li>
+      <li>Feragen, A., et al. (2012). Toward a Theory of Statistical Tree-Shape Analysis. IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI).</li>
+      <li>Hauberg, S., et al. (2015). A Random Riemannian Metric for Probabilistic Shortest-Path Tractography. International Conference on Medical Image Computing and Computer-Assisted Intervention (MICCAI).</li>
+      <li>Navarro, A., Frellsen, J., &amp; Turner, R. (2017). The Multivariate Generalised von Mises Distribution: Inference and Applications. AAAI Conference on Artificial Intelligence.</li>
+      <li>Mattei, P.-A., &amp; Frellsen, J. (2019). MIWAE: Deep Generative Modelling and Imputation of Incomplete Data Sets. International Conference on Machine Learning (ICML).</li>
+      <li>Maaløe, L., Fraccaro, M., et al. (2016). Auxiliary Deep Generative Models. International Conference on Machine Learning (ICML).</li>
+      <li>Fraccaro, M., Sønderby, S. K., Paquet, U., &amp; Winther, O. (2016). Sequential Neural Models with Stochastic Layers. Advances in Neural Information Processing Systems (NeurIPS).</li>
+      <li>Maaløe, L., Fraccaro, M., Liévin, V., &amp; Winther, O. (2019). BIVA: A Very Deep Hierarchy of Latent Variables for Generative Modeling. Advances in Neural Information Processing Systems (NeurIPS).</li>
     </ol>
   </div>
 
@@ -265,14 +260,14 @@
 
   <p><strong>Coordination</strong></p>
   <ul>
-    <li>Lisbeth Borbye, PhD, University of Copenhagen — lisbeth.borbye@bio.ku.dk</li>
+    <li>Lisbeth Borbye, PhD, University of Copenhagen — <a href="mailto:lisbeth.borbye@bio.ku.dk">lisbeth.borbye@bio.ku.dk</a></li>
   </ul>
 
 </main>
 
-<!-- Footer graphic (requested) -->
+<!-- Footer graphic -->
 <div class="footer-graphic">
-  <img src="team_reduced_inner_only.svg" alt="MLLS graphic" />
+  <img src="team_reduced_inner_only.svg" alt="MLLS graphic">
 </div>
 
 <footer>
