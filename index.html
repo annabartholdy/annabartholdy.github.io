@@ -13,7 +13,6 @@
     --muted:#555;
     --link:#0a66c2;
     --line:#e6e6e6;
-    --zebra:#fafafa;
   }
   html,body{margin:0;padding:0}
   body{
@@ -48,53 +47,54 @@
   .center{text-align:center}
   .muted{color:var(--muted)}
   .hr{height:1px;background:var(--line);margin:28px 0}
-  img{max-width:100%;height:auto}
+  img{max-width:100%;height:auto;display:block}
 
-  /* Intro with right sidebar logo box (like mlls.dk) */
+  /* Intro with right sidebar logo box */
   .intro-grid{
     display:grid; gap:24px; grid-template-columns:1fr 240px; align-items:start;
   }
   .sidebox{
-    border:1px solid var(--line); background:#fafafa; border-radius:8px; padding:12px;
+    border:1px solid var(--line); border-radius:8px; padding:12px; /* no background */
   }
   .sidebox .logo-stack{display:flex;flex-direction:column;gap:10px;align-items:center}
-  .sidebox img{max-height:64px; width:auto; display:block}
+  .sidebox img{max-height:64px;width:auto}
+  .sidebox .social{margin-top:8px; display:flex; justify-content:center}
+  .sidebox .social img{width:24px;height:24px}
   @media (max-width:860px){ .intro-grid{grid-template-columns:1fr} }
 
-  /* Logos row later on */
+  /* Logos row (optional later) */
   .logos{
     display:flex;gap:22px;align-items:center;justify-content:center;flex-wrap:wrap;margin:10px 0 18px
   }
   .logos img{max-height:64px;width:auto}
-  .logos img.tall{max-height:80px}
 
-  /* News card with NeurIPS logo */
+  /* News card */
   .news-box{
-    border:1px solid var(--line);border-radius:8px;padding:14px 16px;background:#fafafa;
+    border:1px solid var(--line);border-radius:8px;padding:14px 16px; /* no background */
     display:grid;gap:12px;grid-template-columns:84px 1fr;align-items:flex-start;
   }
-  .news-thumb{width:84px;height:auto;display:block}
+  .news-thumb{width:84px;height:auto}
   @media (max-width:560px){.news-box{grid-template-columns:1fr}.news-thumb{width:120px}}
 
-  /* Scrollable publications (full text) */
+  /* Scrollable publications (no background) */
   .pubs{
-    border:1px solid var(--line);border-radius:8px;padding:10px 14px;background:#fafafa;
+    border:1px solid var(--line);border-radius:8px;padding:10px 14px;
     max-height:260px;overflow:auto;
   }
 
-  /* Research table styled like mlls.dk */
+  /* Research table — slim and clean */
   table.research-table{border-collapse:collapse;width:100%;margin:8px 0 18px;border:1px solid var(--line)}
   .research-table thead th{
-    background:#f3f3f3; text-transform:uppercase; font-size:12px; letter-spacing:.6px;
+    background:#fff; /* remove grey header */
+    text-transform:uppercase; font-size:12px; letter-spacing:.6px;
     padding:8px 10px; border-bottom:1px solid var(--line);
   }
   .research-table tbody td{
     padding:10px; vertical-align:top; border-top:1px solid var(--line);
   }
-  .research-table tbody tr:nth-child(odd){background:var(--zebra)}
   .research-table tbody td:first-child{width:36%;font-weight:600}
 
-  /* Contact/Team tables */
+  /* Standard table */
   table.std{border-collapse:collapse;width:100%;margin:8px 0 18px}
   .std th,.std td{padding:6px 6px 6px 0;vertical-align:top;border-bottom:1px solid var(--line)}
   .std th{font-weight:700;text-align:left}
@@ -102,7 +102,7 @@
   /* Footer */
   footer{border-top:1px solid var(--line);margin-top:32px}
   .footer-graphic{padding:16px 0}
-  .footer-graphic img{display:block;margin:0 auto;max-width:600px}
+  .footer-graphic img{margin:0 auto;max-width:600px}
   footer .foot{font-size:14px;color:#333;display:flex;align-items:center;gap:12px;justify-content:center;padding:18px}
   footer .foot img{width:20px;height:20px}
 </style>
@@ -155,20 +155,19 @@
       </p>
     </div>
 
-    <!-- Right-side logo box -->
+    <!-- Right-side logo + Twitter box -->
     <aside class="sidebox" aria-label="Hosts & partners">
       <div class="logo-stack">
         <img src="DTU.jpg" alt="DTU">
         <img src="KU.png" alt="University of Copenhagen">
         <img src="novo.png" alt="Novo Nordisk Foundation">
+        <div class="social">
+          <a href="https://twitter.com/MLLS" target="_blank" rel="noopener" aria-label="Twitter">
+            <img src="twitter_icon.png" alt="Twitter">
+          </a>
+        </div>
       </div>
     </aside>
-  </div>
-
-  <div class="center" style="margin:8px 0 24px">
-    <a href="https://twitter.com/MLLS" target="_blank" rel="noopener" title="MLLS on Twitter/X">
-      <img src="twitter_icon.png" alt="Twitter icon" style="width:28px;height:28px">
-    </a>
   </div>
 
   <div class="hr"></div>
@@ -195,7 +194,7 @@
     <li>Inclusion of real data that is “noisy” and investigation of how associated uncertainty is best encoded.</li>
   </ol>
 
-  <!-- Research table styled like mlls.dk -->
+  <!-- Research table -->
   <table class="research-table">
     <thead>
       <tr><th>Team Member</th><th>Research Area</th></tr>
@@ -320,4 +319,3 @@
 
 </body>
 </html>
-
