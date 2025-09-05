@@ -12,6 +12,8 @@
     --ink: #111;
     --muted:#555;
     --link:#0a66c2;
+    --line:#e6e6e6;
+    --zebra:#fafafa;
   }
   html,body{margin:0;padding:0}
   body{
@@ -28,9 +30,8 @@
   }
   header::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.42)}
   header .hero{
-    position:relative; z-index:1;
-    min-height:280px; display:grid; place-items:center;
-    text-align:center; padding:34px 18px;
+    position:relative; z-index:1; min-height:280px;
+    display:grid; place-items:center; text-align:center; padding:34px 18px;
   }
   header .title{font-weight:700;font-size:28px;line-height:1.2}
   header .subtitle{font-weight:600;margin-top:6px;font-size:15px;opacity:.9}
@@ -46,10 +47,21 @@
   a:hover{text-decoration:underline}
   .center{text-align:center}
   .muted{color:var(--muted)}
-  .hr{height:1px;background:#e6e6e6;margin:28px 0}
+  .hr{height:1px;background:var(--line);margin:28px 0}
   img{max-width:100%;height:auto}
 
-  /* Logos row */
+  /* Intro with right sidebar logo box (like mlls.dk) */
+  .intro-grid{
+    display:grid; gap:24px; grid-template-columns:1fr 240px; align-items:start;
+  }
+  .sidebox{
+    border:1px solid var(--line); background:#fafafa; border-radius:8px; padding:12px;
+  }
+  .sidebox .logo-stack{display:flex;flex-direction:column;gap:10px;align-items:center}
+  .sidebox img{max-height:64px; width:auto; display:block}
+  @media (max-width:860px){ .intro-grid{grid-template-columns:1fr} }
+
+  /* Logos row later on */
   .logos{
     display:flex;gap:22px;align-items:center;justify-content:center;flex-wrap:wrap;margin:10px 0 18px
   }
@@ -58,25 +70,37 @@
 
   /* News card with NeurIPS logo */
   .news-box{
-    border:1px solid #e6e6e6;border-radius:8px;padding:14px 16px;background:#fafafa;
+    border:1px solid var(--line);border-radius:8px;padding:14px 16px;background:#fafafa;
     display:grid;gap:12px;grid-template-columns:84px 1fr;align-items:flex-start;
   }
   .news-thumb{width:84px;height:auto;display:block}
   @media (max-width:560px){.news-box{grid-template-columns:1fr}.news-thumb{width:120px}}
 
-  /* Scrollable publications (full text, no ellipses) */
+  /* Scrollable publications (full text) */
   .pubs{
-    border:1px solid #e6e6e6;border-radius:8px;padding:10px 14px;background:#fafafa;
+    border:1px solid var(--line);border-radius:8px;padding:10px 14px;background:#fafafa;
     max-height:260px;overflow:auto;
   }
 
+  /* Research table styled like mlls.dk */
+  table.research-table{border-collapse:collapse;width:100%;margin:8px 0 18px;border:1px solid var(--line)}
+  .research-table thead th{
+    background:#f3f3f3; text-transform:uppercase; font-size:12px; letter-spacing:.6px;
+    padding:8px 10px; border-bottom:1px solid var(--line);
+  }
+  .research-table tbody td{
+    padding:10px; vertical-align:top; border-top:1px solid var(--line);
+  }
+  .research-table tbody tr:nth-child(odd){background:var(--zebra)}
+  .research-table tbody td:first-child{width:36%;font-weight:600}
+
   /* Contact/Team tables */
-  table{border-collapse:collapse;width:100%;margin:8px 0 18px}
-  th,td{padding:6px 6px 6px 0;vertical-align:top;border-bottom:1px solid #eee}
-  th{font-weight:700;text-align:left}
+  table.std{border-collapse:collapse;width:100%;margin:8px 0 18px}
+  .std th,.std td{padding:6px 6px 6px 0;vertical-align:top;border-bottom:1px solid var(--line)}
+  .std th{font-weight:700;text-align:left}
 
   /* Footer */
-  footer{border-top:1px solid #e6e6e6;margin-top:32px}
+  footer{border-top:1px solid var(--line);margin-top:32px}
   .footer-graphic{padding:16px 0}
   .footer-graphic img{display:block;margin:0 auto;max-width:600px}
   footer .foot{font-size:14px;color:#333;display:flex;align-items:center;gap:12px;justify-content:center;padding:18px}
@@ -104,33 +128,41 @@
 
   <h1>Machine Learning in Life Science</h1>
 
-  <p>
-    The Center for Basic Machine Learning in Life Science (MLLS) was established on January 21, 2021
-    with the generous support of the
-    <a href="https://datascience.novonordiskfonden.dk" target="_blank" rel="noopener">Novo Nordisk Foundation</a>.
-    We bring together leading machine learning research groups in Denmark to establish a solid foundation
-    for future data science progress in the life sciences.
-  </p>
-  <p>
-    Artificial intelligence and data science are rapidly changing how science is being conducted. Researchers
-    increasingly rely on a data-centric view, where experimental data is used to discover patterns in data and
-    phrase new scientific hypotheses.
-  </p>
-  <p>
-    To extract information from data, modern data science techniques often “convert” the raw sensory measurements
-    into abstract data representations, but these representations are often ill-understood and difficult to interpret,
-    which hinders their use for phrasing robust hypotheses. This is particularly true in the life sciences,
-    where data typically is “noisy” and incomplete.
-  </p>
-  <p>
-    To provide solutions to these problems, we conduct basic research in machine learning that is motivated and
-    informed by fundamental problems in biology and biomedicine.
-  </p>
+  <!-- Intro text with right-hand logo box -->
+  <div class="intro-grid">
+    <div>
+      <p>
+        The Center for Basic Machine Learning in Life Science (MLLS) was established on January 21, 2021
+        with the generous support of the
+        <a href="https://datascience.novonordiskfonden.dk" target="_blank" rel="noopener">Novo Nordisk Foundation</a>.
+        We bring together leading machine learning research groups in Denmark to establish a solid foundation
+        for future data science progress in the life sciences.
+      </p>
+      <p>
+        Artificial intelligence and data science are rapidly changing how science is being conducted. Researchers
+        increasingly rely on a data-centric view, where experimental data is used to discover patterns in data and
+        phrase new scientific hypotheses.
+      </p>
+      <p>
+        To extract information from data, modern data science techniques often “convert” the raw sensory measurements
+        into abstract data representations, but these representations are often ill-understood and difficult to interpret,
+        which hinders their use for phrasing robust hypotheses. This is particularly true in the life sciences,
+        where data typically is “noisy” and incomplete.
+      </p>
+      <p>
+        To provide solutions to these problems, we conduct basic research in machine learning that is motivated and
+        informed by fundamental problems in biology and biomedicine.
+      </p>
+    </div>
 
-  <div class="logos">
-    <a href="https://www.ku.dk" target="_blank" rel="noopener"><img src="KU.png" alt="University of Copenhagen"></a>
-    <a href="https://www.dtu.dk" target="_blank" rel="noopener"><img src="dtu_logo_green.png" alt="DTU"></a>
-    <a href="https://datascience.novonordiskfonden.dk" target="_blank" rel="noopener"><img class="tall" src="novo.png" alt="Novo Nordisk Fonden"></a>
+    <!-- Right-side logo box -->
+    <aside class="sidebox" aria-label="Hosts & partners">
+      <div class="logo-stack">
+        <img src="DTU.jpg" alt="DTU">
+        <img src="KU.png" alt="University of Copenhagen">
+        <img src="novo.png" alt="Novo Nordisk Foundation">
+      </div>
+    </aside>
   </div>
 
   <div class="center" style="margin:8px 0 24px">
@@ -142,15 +174,17 @@
   <div class="hr"></div>
 
   <h2>Our Mission</h2>
-  <p>We conduct the basic machine learning research needed to estimate representations of biomedical data that are</p>
-  <ul>
-    <li>Robust</li>
-    <li>Interpretable</li>
-    <li>Data efficient</li>
-    <li>Reflective of inherent data uncertainty</li>
-    <li>Able to leverage existing knowledge</li>
-  </ul>
-  <p>These representations are both predictive and knowledge discovery tasks.</p>
+  <div class="mission">
+    <p><em>We conduct the basic machine learning research needed to estimate representations of biomedical data that are</em></p>
+    <ul>
+      <li><em>Robust</em></li>
+      <li><em>Interpretable</em></li>
+      <li><em>Data efficient</em></li>
+      <li><em>Reflective of inherent data uncertainty</em></li>
+      <li><em>Able to leverage existing knowledge</em></li>
+    </ul>
+    <p><em>These representations are both predictive and knowledge discovery tasks.</em></p>
+  </div>
 
   <h2>Research</h2>
   <p>Our research focuses on four themes, and each theme advances different aspects of representation learning for life science and support each other:</p>
@@ -161,9 +195,10 @@
     <li>Inclusion of real data that is “noisy” and investigation of how associated uncertainty is best encoded.</li>
   </ol>
 
-  <table>
+  <!-- Research table styled like mlls.dk -->
+  <table class="research-table">
     <thead>
-      <tr><th style="width:38%">TEAM MEMBER</th><th>RESEARCH AREA</th></tr>
+      <tr><th>Team Member</th><th>Research Area</th></tr>
     </thead>
     <tbody>
       <tr>
@@ -237,7 +272,7 @@
   </div>
 
   <h3>Contact MLLS Team</h3>
-  <table>
+  <table class="std">
     <thead>
       <tr><th>Name</th><th>Position</th><th>email</th></tr>
     </thead>
@@ -285,3 +320,4 @@
 
 </body>
 </html>
+
