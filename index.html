@@ -1,9 +1,226 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MLLS — Machine Learning in Life Science, Copenhagen</title>
+  <meta name="description" content="MLLS is a Copenhagen-based initiative at the intersection of machine learning and the life sciences." />
+  <meta property="og:title" content="MLLS — Machine Learning in Life Science, Copenhagen" />
+  <meta property="og:description" content="Copenhagen-based machine learning & life science community." />
+  <meta property="og:image" content="ny-cph.jpeg" />
+  <meta name="theme-color" content="#0a7b3d" />
+
+  <style>
+    /* ======== QUICK SETTINGS (edit these) ======== */
+    :root{
+      --brand:#0a7b3d;       /* Accent color */
+      --brand-2:#8a1538;     /* Secondary accent (KU red-ish) */
+      --bg:#ffffff;
+      --ink:#1b1b1b;
+      --muted:#5b5b5b;
+      --maxw:1100px;         /* Page width */
+      --radius:14px;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+    /* ============================================ */
+
+    /* Basic reset + type */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Layout helpers */
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+    .section{padding:64px 0}
+    .center{text-align:center}
+
+    /* Header / Nav */
+    header{
+      position:sticky;top:0;z-index:50;
+      background:rgba(255,255,255,.9);backdrop-filter:saturate(160%) blur(8px);
+      border-bottom:1px solid #eee;
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex;gap:12px;align-items:center;font-weight:700;letter-spacing:.2px
+    }
+    .brand img{height:30px;width:auto}
+    .nav a{margin-left:20px;color:var(--ink);font-weight:600}
+    .nav a.cta{
+      padding:.45rem .85rem;background:var(--brand);color:#fff;border-radius:999px;
+    }
+    .nav a.cta:hover{text-decoration:none;opacity:.92}
+
+    /* Hero */
+    .hero{
+      position:relative;color:#fff;
+      background:url("ny-cph.jpeg") center/cover no-repeat;
+      min-height:56vh;
+      display:grid;place-items:center;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(180deg,rgba(0,0,0,.50),rgba(0,0,0,.35));
+    }
+    .hero-inner{position:relative;z-index:1;text-align:center;padding:64px 20px}
+    .kicker{
+      display:inline-block;padding:.25rem .6rem;border-radius:999px;
+      background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
+      font-size:.85rem;letter-spacing:.3px
+    }
+    h1{font-size:clamp(32px,5vw,56px);margin:12px 0 6px;line-height:1.1}
+    .sub{font-size:clamp(16px,2.6vw,22px);opacity:.95;margin:0 auto;max-width:900px}
+    .hero-buttons{margin-top:22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn{
+      display:inline-block;padding:.7rem 1rem;border-radius:10px;font-weight:700;
+      background:#fff;color:#111;border:2px solid transparent;box-shadow:var(--shadow)
+    }
+    .btn.alt{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+    .btn:hover{text-decoration:none;transform:translateY(-1px)}
+
+    /* Cards / content */
+    .cards{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .card{
+      border:1px solid #eee;border-radius:var(--radius);padding:18px;background:#fff;box-shadow:var(--shadow)
+    }
+    .card h3{margin:.25rem 0 .4rem}
+    .muted{color:var(--muted)}
+
+    /* Logo cloud */
+    .logos{
+      display:grid;gap:28px;
+      grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+      align-items:center;justify-items:center
+    }
+    .logos img{max-width:210px;max-height:70px;object-fit:contain;filter:saturate(95%)}
+    .logos .tall{max-height:110px}
+
+    /* Two-column text */
+    .cols{display:grid;gap:30px;grid-template-columns:1.1fr .9fr}
+    @media (max-width:860px){.cols{grid-template-columns:1fr}}
+
+    /* Team image */
+    .team{
+      border-radius:var(--radius);overflow:hidden;border:1px solid #eee;box-shadow:var(--shadow)
+    }
+    .team img{width:100%;display:block}
+
+    /* Footer */
+    footer{
+      padding:36px 0;border-top:1px solid #eee;background:#fafafa;color:#333
+    }
+    .foot-inner{display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .social{display:flex;gap:10px;align-items:center}
+    .social img{width:22px;height:22px;display:block}
+
+    /* Dark mode (optional; toggled with button) */
+    .dark{--bg:#0b0b0b;--ink:#e7e7e7;--muted:#bdbdbd;border-color:#222}
+    .dark header{background:rgba(15,15,15,.75);border-bottom-color:#222}
+    .dark .card{background:#111;border-color:#222}
+    .dark .logos img{filter:brightness(92%) saturate(110%)}
+    .dark footer{background:#0f0f0f;border-top-color:#222}
+    .toggle{
+      background:transparent;border:1px solid #ddd;border-radius:999px;padding:.45rem .7rem;font-weight:700
+    }
+    .dark .toggle{border-color:#333;color:#e7e7e7}
+  </style>
+</head>
 <body>
+  <!-- ======= HEADER ======= -->
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <img src="dtu_logo_green.png" alt="DTU logo" />
+        <span>MLLS Copenhagen</span>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#news">News</a>
+        <a href="#team">Team</a>
+        <a href="#partners">Partners</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<h1>Test 1</h1>
-<p>Testing paragraph.</p>
+  <!-- ======= HERO ======= -->
+  <section class="hero">
+    <div class="hero-inner wrap">
+      <span class="kicker">Machine Learning × Life Sciences</span>
+      <h1>MLLS — Copenhagen</h1>
+      <p class="sub">
+        A friendly community connecting researchers and practitioners working at the
+        interface of <strong>machine learning</strong> and the <strong>life sciences</strong>.
+      </p>
+      <div class="hero-buttons">
+        <a class="btn" href="#news">Latest updates</a>
+        <a class="btn alt" href="#partners">Hosts & partners</a>
+      </div>
+    </div>
+  </section>
 
-</body>
-</html>
+  <!-- ======= ABOUT ======= -->
+  <section id="about" class="section">
+    <div class="wrap cols">
+      <div>
+        <h2>About</h2>
+        <!-- Edit the text below to tailor the description -->
+        <p>
+          MLLS is an initiative based in Copenhagen bringing together groups from DTU,
+          the University of Copenhagen and collaborators across industry. We organize
+          community events, talks, and reading groups focused on practical and
+          theoretical aspects of ML for biology, medicine, and the natural sciences.
+        </p>
+        <p class="muted">
+          Want to present your work or propose a meetup? Drop us a line below — we’d love to hear from you.
+        </p>
+
+        <div class="cards" style="margin-top:18px">
+          <article class="card">
+            <h3>What we do</h3>
+            <ul>
+              <li>Seminars & invited talks</li>
+              <li>Reading groups & paper clubs</li>
+              <li>Hands-on workshops</li>
+              <li>Collaborative projects</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Where</h3>
+            <p>
+              Events rotate between <strong>DTU</strong> and the <strong>University of Copenhagen</strong>.
+              Check the News section for specific locations and times.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <div>
+        <!-- A nice visual: team graphic or group illustration -->
+        <div class="team">
+          <img src="team_reduced_inner_only.svg" alt="MLLS community graphic" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= NEWS ======= -->
+  <section id="news" class="section" style="background:#fafafa">
+    <div class="wrap">
+      <h2 class="center">News & Events</h2>
+      <p class="center muted" style="margin-top:-8px">Edit the cards below to post updates.</p>
+
+      <div class="cards" sty
+
