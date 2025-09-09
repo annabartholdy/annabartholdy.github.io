@@ -68,13 +68,43 @@
   }
   .logos img{max-height:64px;width:auto}
 
-  /* News card */
-  .news-box{
-    border:1px solid var(--line);border-radius:8px;padding:14px 16px;
-    display:grid;gap:12px;grid-template-columns:84px 1fr;align-items:flex-start;
-  }
-  .news-thumb{width:84px;height:auto}
-  @media (max-width:560px){.news-box{grid-template-columns:3fr}.news-thumb{width:120px}}
+  /* News grid container */
+.news-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:20px;
+  margin-top:20px;
+}
+@media(max-width:900px){
+  .news-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .news-grid{grid-template-columns:1fr}
+}
+
+/* Each news item */
+.news-item{
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.news-item img{
+  width:100%;
+  height:auto;
+  border-radius:4px;
+}
+.news-item h3{
+  margin:0;
+  font-size:18px;
+}
+.news-item .muted{
+  font-size:14px;
+}
+.news-item p{margin:6px 0 0}
+
 
   /* Scrollable publications */
   .pubs{
@@ -229,81 +259,70 @@
 
   <!-- News Events - EDIT AND INSERT NEWS HERE -->
   <h2>News &amp; Events</h2>
+  <div class="news-grid">
 
-  <div class="news-box">
-    <img class="news-thumb" src="neurips.png" alt="NeurIPS logo">
-    <div>
-      <h3 style="margin-top:0">NeurIPS 2021 Meetup</h3>
+
+    <div class="news-item">
+      <img src="neurips.png" alt="NeurIPS logo">
+      <h3>NeurIPS 2021 Meetup</h3>
       <p class="muted">07.12.2021 – 11.12.2021</p>
       <p>
         This NeurIPS 2021 meetup takes place in Copenhagen aiming to act as the central meetup for this area.
         The meetup will feature a collection of focused reading groups. PhD students within ELLIS Copenhagen may
-        get ECTS credit for joining these reading groups. If the situation allows, the meetup will be physical with
-        on-ground activities.
+        get ECTS credit for joining these reading groups.
       </p>
       <p><a href="https://ellis-cph.dk/" target="_blank" rel="noopener">To news</a></p>
     </div>
-  </div>
 
-  <div class="news-box">
-    <img class="news-thumb" src="neurips.png" alt="NeurIPS logo">
-    <div>
-      <h3 style="margin-top:0">NeurIPS Satellite Session</h3>
+    <div class="news-item">
+      <img src="neurips.png" alt="NeurIPS logo">
+      <h3>NeurIPS Satellite Session</h3>
       <p class="muted">07.12.2021 – 10.12.2021</p>
       <p>
         NeurIPS 2022 will be a Hybrid Conference with a physical component at the New Orleans Convention Center during the first week, and a virtual component the second week.
       </p>
       <p><a href="https://neurips.cc/Conferences/2022" target="_blank" rel="noopener">To news</a></p>
     </div>
-  </div>
 
-  <div class="news-box">
-    <img class="news-thumb" src="KU.png" alt="KU logo">
-    <div>
-      <h3 style="margin-top:0">AI Meets Life Science and Biotech Symposium</h3>
+    <div class="news-item">
+      <img src="KU.png" alt="KU logo">
+      <h3>AI Meets Life Science and Biotech Symposium</h3>
       <p class="muted">21.06.2022</p>
       <p>
         The symposium will explore modern AI and machine learning as drivers for scientific discovery and far-reaching applications within life science, health science and biotech. Crucial in this transformation is the ability to extract meaningful associations and causalities from messy real-world data – a paradigm shift from more traditional data analysis. In this workshop we take a snapshot look at how modern machine learning and AI currently transform areas like medical research and clinical practice.
       </p>
       <p><a href="https://di.ku.dk/english/event-calendar-2022/ai-meets-life-science-and-biotech-symposium/" target="_blank" rel="noopener">To news</a></p>
     </div>
-  </div>
-  
-  <div class="news-box">
-    <img class="news-thumb" src="GenU2021.png" alt="GenU 2021 logo">
-    <div>
-      <h3 style="margin-top:0">GenU Conference 2021</h3>
+
+    <div class="news-item">
+      <img src="GenU2021.png" alt="GenU 2021 logo">
+      <h3>GenU Conference 2021</h3>
       <p class="muted">12.10.2021 – 13.10.2021</p>
       <p>
         Generative models and uncertainty quantification lie at the heart of Bayesian modelling and inference. At this small meeting, we discuss recent developments within the field. The meeting is deliberately kept small in order to ensure that discussion remains honest, lively and interesting.
       </p>
       <p><a href="https://genu.ai/2021/" target="_blank" rel="noopener">To news</a></p>
     </div>
-  </div>
 
-   <div class="news-box">
-    <img class="news-thumb" src="GenU2022.png" alt="GenU 2022 logo">
-    <div>
-      <h3 style="margin-top:0">GenU Conference 2022</h3>
+    <div class="news-item">
+      <img src="GenU2022.png" alt="GenU 2022 logo">
+      <h3>GenU Conference 2022</h3>
       <p class="muted">14.09.2022 – 15.09.2022</p>
       <p>
         Generative models and uncertainty quantification lie at the heart of Bayesian modelling and inference. At this small meeting, we discuss recent developments within the field. The meeting is deliberately kept small in order to ensure that discussion remains honest, lively and interesting.
       </p>
       <p><a href="https://genu.ai/2022/" target="_blank" rel="noopener">To news</a></p>
     </div>
-  </div>
 
-  <div class="news-box">
-    <img class="news-thumb" src="GenU2023.png" alt="GenU 2023 logo">
-    <div>
-      <h3 style="margin-top:0">GenU Conference 2023</h3>
+    <div class="news-item">
+      <img src="GenU2023.png" alt="GenU 2023 logo">
+      <h3>GenU Conference 2023</h3>
       <p class="muted">20.09.2023 – 21.09.2023</p>
       <p>
         Generative models and uncertainty quantification lie at the heart of Bayesian modelling and inference. At this small meeting, we discuss recent developments within the field. The meeting is deliberately kept small in order to ensure that discussion remains honest, lively and interesting.
       </p>
       <p><a href="https://genu.ai/2023/" target="_blank" rel="noopener">To news</a></p>
     </div>
-  </div>
 
   <!-- Publications - EDIT AND INSERT PUBLICATIONS HERE -->
   <h3 style="margin-top:26px">Relevant Publications</h3>
