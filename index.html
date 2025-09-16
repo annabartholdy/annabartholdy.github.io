@@ -8,7 +8,7 @@
 
 <style>
   :root{
-    --maxw: 900px;
+    --maxw: 1000px;
     --ink: #111;
     --muted:#555;
     --link:#0a66c2;
@@ -37,10 +37,10 @@
 
   /* Base type */
   h1,h2,h3{line-height:1.25}
-  h1{font-size:36px;margin:26px 0 8px;text-align:center}
-  h2{font-size:28px;margin:28px 0 10px}
-  h3{font-size:20px;margin:22px 0 8px}
-  p{margin:12px 0}
+  h1{font-size:42px;margin:26px 0 8px;text-align:center}
+  h2{font-size:36px;margin:28px 0 10px}
+  h3{font-size:28px;margin:22px 0 8px}
+  p{margin:15px 0}
   ul,ol{margin:8px 0 16px 22px}
   a{color:var(--link);text-decoration:none}
   a:hover{text-decoration:underline}
@@ -60,7 +60,7 @@
   .sidebox img{max-height:64px;width:auto}
   .sidebox .social{margin-top:8px; display:flex; justify-content:center}
   .sidebox .social img{width:24px;height:24px}
-  @media (max-width:860px){ .intro-grid{grid-template-columns:1fr} }
+  @media (max-width:1000px){ .intro-grid{grid-template-columns:1fr} }
 
   /* Logos row (optional later) */
   .logos{
@@ -129,8 +129,8 @@
   
   /* Standard table */
   table.std{border-collapse:collapse;width:100%;margin:8px 0 18px}
-  .std th,.std td{height: 40px;font-size: 13px;padding:6px 6px 6px 0;vertical-align:top;border-bottom:1px solid var(--line)}
-  .std th{height: 40px;font-size: 15px;font-weight:700;text-align:left}
+  .std th,.std td{height: 40px;font-size: 15px;padding:6px 6px 6px 0;vertical-align:top;border-bottom:1px solid var(--line)}
+  .std th{height: 40px;font-size: 18px;font-weight:700;text-align:left}
   
   /* Footer */
   footer{border-top:1px solid var(--line);margin-top:32px}
@@ -384,12 +384,12 @@
       <tr><th>Name and title</th><th>Institution</th><th>Description</th><th>email</th></tr>
     </thead>
     <tbody>
-      <tr><td width="20%">Professor Ole Winther, PI<p style="font-size: 10px;"><a href="https://scholar.google.com/citations?user=7VAwhzUAAAAJ&hl=da">Google Scholar</a> | <a href="https://researchprofiles.ku.dk/en/persons/ole-winther">Personal Research Page</a></p></td><td width="20%">University of Copenhagen</td><td width="40%">Hierarchical generative models, gene regulation and sequence bioinformatics. NLP and appropriate inferences.</td><td width="20%">ole.winther@bio.ku.dk</td></tr>
-      <tr><td>Professor Anders Krogh, PI<p style="font-size: 10px;"><a href="https://scholar.google.com/citations?hl=da&user=-vGMjmwAAAAJ">Google Scholar</a> | <a href="https://researchprofiles.ku.dk/en/persons/anders-krogh">Personal Research Page</a></p></td><td>University of Copenhagen</td><td>Representation learning for gene expression data and DNA sequences. Machine learning in bioinformatics.</td><td>akrogh@di.ku.dk</td></tr>
-      <tr><td>Professor Wouter Boomsma, PI<p style="font-size: 10px;"><a href="https://scholar.google.com/citations?hl=da&user=EwqU_jsAAAAJ">Google Scholar</a> | <a href="https://ku-bioml.github.io/">Personal Research Page</a></p></td><td>University of Copenhagen</td><td>Sequence modelling, protein representation learning, Bayesian inference (Markov chain Monte Carlo).</td><td>wb@di.ku.dk</td></tr>
-      <tr><td>Professor Aasa Feragen, PI<p style="font-size: 10px;"><a href="https://scholar.google.com/citations?hl=da&user=MNDVpoUAAAAJ">Google Scholar</a> | <a href="https://www2.compute.dtu.dk/~afhar/">Personal Research Page</a></p></td><td>Technical University of Denmark</td><td>Geometric modeling, machine learning for biomedical imaging, structured data (trees, networks, …)</td><td>afhar@dtu.dk</td></tr>
-      <tr><td>Associate Professor Jes Frellsen, PI<p style="font-size: 10px;"><a href="https://scholar.google.com/citations?hl=da&user=Yj2sBWkAAAAJ">Google Scholar</a> | <a href="https://frellsen.org/">Personal Research Page</a></p></td><td>Technical University of Denmark</td><td>Deep generative models, missing values, Bayesian modeling, approximate inference.</td><td>jefr@dtu.dk</td></tr>
-      <tr><td>Professor Søren Hauberg, PI<p style="font-size: 10px;"><a href="https://scholar.google.com/citations?hl=da&user=M1fMGOMAAAAJ">Google Scholar</a> | <a href="https://www2.compute.dtu.dk/~sohau/">Personal Research Page</a></p></td><td>Technical University of Denmark</td><td>Random geometry, uncertainty quantification, deep generative models.</td><td>sohau@dtu.dk</td></tr>
+      <tr><td width="20%">Professor Ole Winther, PI<p style="font-size: 12px;"><a href="https://scholar.google.com/citations?user=7VAwhzUAAAAJ&hl=da">Google Scholar</a> | <a href="https://researchprofiles.ku.dk/en/persons/ole-winther">Personal Research Page</a></p></td><td width="20%">University of Copenhagen</td><td width="40%">Hierarchical generative models, gene regulation and sequence bioinformatics. NLP and appropriate inferences.</td><td width="20%">ole.winther@bio.ku.dk</td></tr>
+      <tr><td>Professor Anders Krogh, PI<p style="font-size: 12px;"><a href="https://scholar.google.com/citations?hl=da&user=-vGMjmwAAAAJ">Google Scholar</a> | <a href="https://researchprofiles.ku.dk/en/persons/anders-krogh">Personal Research Page</a></p></td><td>University of Copenhagen</td><td>Representation learning for gene expression data and DNA sequences. Machine learning in bioinformatics.</td><td>akrogh@di.ku.dk</td></tr>
+      <tr><td>Professor Wouter Boomsma, PI<p style="font-size: 12px;"><a href="https://scholar.google.com/citations?hl=da&user=EwqU_jsAAAAJ">Google Scholar</a> | <a href="https://ku-bioml.github.io/">Personal Research Page</a></p></td><td>University of Copenhagen</td><td>Sequence modelling, protein representation learning, Bayesian inference (Markov chain Monte Carlo).</td><td>wb@di.ku.dk</td></tr>
+      <tr><td>Professor Aasa Feragen, PI<p style="font-size: 12px;"><a href="https://scholar.google.com/citations?hl=da&user=MNDVpoUAAAAJ">Google Scholar</a> | <a href="https://www2.compute.dtu.dk/~afhar/">Personal Research Page</a></p></td><td>Technical University of Denmark</td><td>Geometric modeling, machine learning for biomedical imaging, structured data (trees, networks, …)</td><td>afhar@dtu.dk</td></tr>
+      <tr><td>Associate Professor Jes Frellsen, PI<p style="font-size: 12px;"><a href="https://scholar.google.com/citations?hl=da&user=Yj2sBWkAAAAJ">Google Scholar</a> | <a href="https://frellsen.org/">Personal Research Page</a></p></td><td>Technical University of Denmark</td><td>Deep generative models, missing values, Bayesian modeling, approximate inference.</td><td>jefr@dtu.dk</td></tr>
+      <tr><td>Professor Søren Hauberg, PI<p style="font-size: 12px;"><a href="https://scholar.google.com/citations?hl=da&user=M1fMGOMAAAAJ">Google Scholar</a> | <a href="https://www2.compute.dtu.dk/~sohau/">Personal Research Page</a></p></td><td>Technical University of Denmark</td><td>Random geometry, uncertainty quantification, deep generative models.</td><td>sohau@dtu.dk</td></tr>
     </tbody>
   </table>
 
