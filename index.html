@@ -68,22 +68,22 @@
   }
   .logos img{max-height:64px;width:auto}
 
-  /* News grid container */
-  .news-grid{
+  /* Events grid container */
+  .events-grid{
     display:grid;
     grid-template-columns: repeat(3, 1fr);
     gap:20px;
     margin-top:20px;
   }
   @media(max-width:900px){
-    .news-grid{grid-template-columns:repeat(2,1fr)}
+    .events-grid{grid-template-columns:repeat(2,1fr)}
   }
   @media(max-width:600px){
-    .news-grid{grid-template-columns:1fr}
+    .events-grid{grid-template-columns:1fr}
   }
   
-  /* Each news item */
-  .news-item{
+  /* Each events item */
+  .events-item{
     border:1px solid var(--line);
     border-radius:6px;
     padding:16px;
@@ -91,19 +91,19 @@
     flex-direction:column;
     gap:10px;
   }
-  .news-item img{
+  .events-item img{
     width:84px;
     height:auto;
     border-radius:4px;
   }
-  .news-item h3{
+  .events-item h3{
     margin:0;
     font-size:15px;
   }
-  .news-item .muted{
+  .events-item .muted{
     font-size:12px;
   }
-  .news-item p{
+  .events-item p{
     margin:6px 0 0;
     font-size:15px;
   }
@@ -256,45 +256,12 @@
   <ul>
     <li>Lisbeth Borbye, PhD, University of Copenhagen — <a href="mailto:lisbeth.borbye@bio.ku.dk">lisbeth.borbye@bio.ku.dk</a></li>
   </ul>
-  
-  <!-- Research table 
-  <table class="research-table">
-    <thead>
-      <tr><th>Team Member</th><th>Research Area</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="https://researchprofiles.ku.dk/en/persons/anders-krogh" target="_blank" rel="noopener">Professor Anders Krogh</a></td>
-        <td>Representation learning for gene expression data and DNA sequences. Machine learning in bioinformatics.</td>
-      </tr>
-      <tr>
-        <td><a href="https://ku-bioml.github.io/" target="_blank" rel="noopener">Professor Wouter Boomsma</a></td>
-        <td>Sequence modelling, protein representation learning, Bayesian inference (Markov chain Monte Carlo).</td>
-      </tr>
-      <tr>
-        <td><a href=https://www2.compute.dtu.dk/~afhar/" target="_blank" rel="noopener">Professor Aasa Feragen</a></td>
-        <td>Geometric modeling, machine learning for biomedical imaging, structured data (trees, networks, …)</td>
-      </tr>
-      <tr>
-        <td><a href="https://frellsen.org" target="_blank" rel="noopener">Associate Professor Jes Frellsen</a></td>
-        <td>Deep generative models, missing values, Bayesian modeling, approximate inference.</td>
-      </tr>
-      <tr>
-        <td><a href="https://www2.compute.dtu.dk/~sohau/" target="_blank" rel="noopener">Professor Søren Hauberg</a></td>
-        <td>Random geometry, uncertainty quantification, deep generative models.</td>
-      </tr>
-      <tr>
-        <td><a href="https://www1.bio.ku.dk/english/staff/?pure=en/persons/104236" target="_blank" rel="noopener">Professor Ole Winther</a></td>
-        <td>Hierarchical generative models, gene regulation and sequence bioinformatics. NLP and appropriate inferences.</td>
-      </tr>
-    </tbody>
-  </table> -->
 
-  <!-- News Events - EDIT AND INSERT NEWS HERE -->
-  <h2>News &amp; Events</h2>
-  <div class="news-grid">
+  <!-- Events - EDIT AND INSERT EVENTS HERE -->
+  <h2>Events</h2>
+  <div class="events-grid">
     
-    <div class="news-item">
+    <div class="events-item">
       <img src="GenU2025.png" alt="GenU 2025 logo">
       <h3>GenU Conference 2025</h3>
       <p class="muted">17.09.2025 – 18.09.2025</p>
@@ -304,7 +271,7 @@
       <p><a href="https://genu.ai/2025/" target="_blank" rel="noopener">More</a></p>
     </div>
 
-    <div class="news-item">
+    <div class="events-item">
       <img src="MLLS_logo.png" alt="MLLS logo">
       <h3>MLLS PI ½-day Research Retreat</h3>
       <p class="muted">25.08.2025</p>
@@ -313,7 +280,7 @@
       </p>
     </div>
 
-    <div class="news-item">
+    <div class="events-item">
       <img src="MLLS_logo.png" alt="MLLS logo">
       <h3>MLLS Retreat 2025</h3>
       <p class="muted">15.06.2025 – 18.06.2025</p>
@@ -322,7 +289,7 @@
       </p>
     </div>
     
-    <div class="news-item">
+    <div class="events-item">
       <img src="GenU2024.png" alt="GenU 2024 logo">
       <h3>GenU Conference 2024</h3>
       <p class="muted">18.09.2024 – 19.09.2024</p>
@@ -332,7 +299,7 @@
       <p><a href="https://genu.ai/2024/" target="_blank" rel="noopener">More</a></p>
     </div>
 
-    <div class="news-item">
+    <div class="events-item">
       <img src="MLLS_logo.png" alt="MLLS logo">
       <h3>MLLS Retreat 2024</h3>
       <p class="muted">25.04.2024 – 28.04.2024</p>
@@ -341,7 +308,7 @@
       </p>
     </div>
 
-    <div class="news-item">
+    <div class="events-item">
       <img src="GenLife2024.png" alt="GenLife 2024 logo">
       <h3>GenLife Conference 2024</h3>
       <p class="muted">15.04.2024 – 16.04.2024</p>
@@ -351,7 +318,7 @@
       <p><a href="https://genlife.dk/" target="_blank" rel="noopener">More</a></p>
     </div>
     
-    <div class="news-item">
+    <div class="events-item">
       <img src="GenU2023.png" alt="GenU 2023 logo">
       <h3>GenU Conference 2023</h3>
       <p class="muted">20.09.2023 – 21.09.2023</p>
@@ -361,7 +328,7 @@
       <p><a href="https://genu.ai/2023/" target="_blank" rel="noopener">More</a></p>
     </div>
 
-    <div class="news-item">
+    <div class="events-item">
       <img src="MLLS_logo.png" alt="MLLS logo">
       <h3>MLLS Retreat 2023</h3>
       <p class="muted">18.04.2023 – 19.04.2023</p>
@@ -370,7 +337,7 @@
       </p>
     </div>
 
-    <div class="news-item">
+    <div class="events-item">
       <img src="MLLS_logo.png" alt="MLLS logo">
       <h3>MLLS PI Vision Workshop</h3>
       <p class="muted">01.12.2022</p>
@@ -379,7 +346,7 @@
       </p>
     </div>
     
-    <div class="news-item">
+    <div class="events-item">
       <img src="GenU2022.png" alt="GenU 2022 logo">
       <h3>GenU Conference 2022</h3>
       <p class="muted">14.09.2022 – 15.09.2022</p>
@@ -389,7 +356,7 @@
       <p><a href="https://genu.ai/2022/" target="_blank" rel="noopener">More</a></p>
     </div>
 
-    <div class="news-item">
+    <div class="events-item">
       <img src="MLLS_logo.png" alt="MLLS logo">
       <h3>MLLS Opening Symposium: The Royal Danish Academy of Sciences and Letters</h3>
       <p class="muted">15.08.2022 – 16.08.2022</p>
@@ -398,7 +365,7 @@
       </p>
     </div>
     
-    <div class="news-item">
+    <div class="events-item">
       <img src="GenU2021.png" alt="GenU 2021 logo">
       <h3>GenU Conference 2021</h3>
       <p class="muted">12.10.2021 – 13.10.2021</p>
@@ -408,7 +375,7 @@
       <p><a href="https://genu.ai/2021/" target="_blank" rel="noopener">More</a></p>
     </div>
     
-    <div class="news-item">
+    <div class="events-item">
       <img src="KU.png" alt="KU logo">
       <h3>AI Meets Life Science and Biotech Symposium</h3>
       <p class="muted">21.06.2022</p>
@@ -418,7 +385,7 @@
       <p><a href="https://di.ku.dk/english/event-calendar-2022/ai-meets-life-science-and-biotech-symposium/" target="_blank" rel="noopener">More</a></p>
     </div>
 
-    <div class="news-item">
+    <div class="events-item">
       <img src="MLLS_logo.png" alt="MLLS logo">
       <h3>MLLS Retreat 2022</h3>
       <p class="muted">19.04.2022 – 20.04.2022</p>
@@ -427,7 +394,7 @@
       </p>
     </div>
 
-    <div class="news-item">
+    <div class="events-item">
       <img src="neurips.png" alt="NeurIPS logo">
       <h3>NeurIPS Satellite Session</h3>
       <p class="muted">07.12.2021 – 10.12.2021</p>
@@ -437,7 +404,7 @@
       <p><a href="https://neurips.cc/Conferences/2022" target="_blank" rel="noopener">More</a></p>
     </div>
 
-    <div class="news-item">
+    <div class="events-item">
       <img src="neurips.png" alt="NeurIPS logo">
       <h3>NeurIPS 2021 Meetup</h3>
       <p class="muted">07.12.2021 – 11.12.2021</p>
