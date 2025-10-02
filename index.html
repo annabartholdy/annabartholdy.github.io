@@ -159,6 +159,7 @@
     border:1px solid var(--line);
     border-radius:8px;
     overflow-y:auto;       /* vertical scroll only */
+    overflow-x:hidden;
     max-height:320px;
     background:#fff;
   }
@@ -232,6 +233,24 @@
       color: var(--muted);
       font-size: 13px;
     }
+    
+    /* Ensure columns can wrap on mobile */
+    .seminars-table td,
+    .seminars-table th {
+      white-space: normal !important;
+      overflow-wrap: anywhere;   /* handles very-long words/URLs */
+      word-break: break-word;
+    }    
+    
+    /* Explicitly override the desktop nowrap on col 1 and 3 */
+    .seminars-table td:nth-child(1),
+    .seminars-table td:nth-child(3) {
+      white-space: normal !important;
+      width: auto;               /* let them shrink/wrap */
+    }
+
+    .seminars-table { table-layout: fixed; }  /* helps wrapping on narrow screens */
+    
   }
 
 
