@@ -175,13 +175,12 @@
     text-align:left;
     vertical-align:top;
     font-size:16px;
-    /* Prefer natural wrapping; break long tokens only when needed */
-    white-space:normal;
-    word-break:normal;
-    overflow-wrap:break-word;
-    hyphens:auto;
-    -webkit-hyphens:auto;
-    -ms-hyphens:auto;
+  
+    /* ONLY break at spaces; never split words */
+    white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: normal;
+    hyphens: none;
   }
 
   .seminars-table th {
@@ -247,18 +246,17 @@
       font-size:13px;
     }
   
-    /* Ensure clean wrapping (no cut-off, no mid-word chops) */
+    /* Ensure columns wrap only at spaces on mobile */
     .seminars-table td,
     .seminars-table th {
-      white-space:normal !important;
-      word-break:normal;
-      overflow-wrap:break-word;
-      hyphens:auto;
-      -webkit-hyphens:auto;
-      -ms-hyphens:auto;
-      max-width:100%;
-      overflow:visible;
+      white-space: normal !important;
+      word-break: keep-all;   /* do not split words */
+      overflow-wrap: normal;  /* do not break long tokens */
+      hyphens: none;
+      max-width: 100%;
+      overflow: visible;
     }
+
   
     /* Override desktop nowrap on speaker and year */
     .seminars-table td:nth-child(1),
