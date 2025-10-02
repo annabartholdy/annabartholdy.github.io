@@ -16,7 +16,6 @@
   }
   html,body{margin:0;padding:0}
   body{
-    /* was: 17px/1.7 */
     font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     color:var(--ink); background:#fff;
   }
@@ -33,15 +32,12 @@
     position:relative; z-index:1; min-height:280px;
     display:grid; place-items:start; text-align:center; padding:34px 18px;
   }
-  /* was 700/50px -> lighter + smaller for balance */
   header .title{font-weight:600;font-size:42px;line-height:1.2}
-  /* was 600/32px -> lighter + smaller */
   header .subtitle{font-weight:400;margin-top:6px;font-size:22px}
   header .brand-logo{display:block;margin:12px auto 0}
 
   /* Base type */
   h1,h2,h3{line-height:1.25}
-  /* was 42/36/28 -> smoother scale */
   h1{font-size:32px;margin:26px 0 15px;font-weight:600}
   h2{font-size:26px;margin:36px 0 15px;font-weight:600}
   h3{font-size:22px;margin:28px 0 12px;font-weight:600}
@@ -67,7 +63,7 @@
   .sidebox .social img{width:24px;height:24px}
   @media (max-width:1000px){ .intro-grid{grid-template-columns:1fr} }
 
-  /* Logos row (optional later) */
+  /* Logos row */
   .logos{
     display:flex;gap:22px;align-items:center;justify-content:center;flex-wrap:wrap;margin:10px 0 18px
   }
@@ -101,23 +97,14 @@
     height:auto;
     border-radius:4px;
   }
-  /* titles were 15px -> 18px/600 for hierarchy */
   .events-item h3{
     margin:0;
     font-size:18px;
     font-weight:600;
   }
-  /* muted was 12px -> 14px for legibility */
-  .events-item .muted{
-    font-size:14px;
-  }
-  /* body text 15px -> 16px to match site */
-  .events-item p{
-    margin:6px 0 0;
-    font-size:16px;
-  }
-  
-  
+  .events-item .muted{font-size:14px;}
+  .events-item p{margin:6px 0 0;font-size:16px;}
+
   /* Scrollable publications */
   .pubs{
     border:1px solid var(--line);border-radius:8px;padding:10px 14px;
@@ -128,7 +115,6 @@
   table.research-table{border-collapse:collapse;width:100%;margin:8px 0 18px;border:1px solid var(--line)}
   .research-table thead th{
     background:#fff;
-    /* was uppercase 12px — keep style, but size to 16 and weight 600 */
     text-transform:uppercase; font-size:16px; letter-spacing:.6px; font-weight:600;
     padding:8px 10px; border-bottom:1px solid var(--line);
   }
@@ -140,12 +126,10 @@
   
   /* Standard table */
   table.std{border-collapse:collapse;width:100%;margin:8px 0 18px}
-  /* was 15px -> 16px */
   .std th,.std td{height: 40px;font-size:16px;padding:10px 10px 10px 0;vertical-align:top;border-bottom:1px solid var(--line)}
-  /* was 18px/700 -> 16px/600 to align with rest */
   .std th{height:40px;font-size:16px;font-weight:600;text-align:left}
 
-  /* Team cards (responsive like Events) */
+  /* Team cards */
   .team-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -154,7 +138,6 @@
   }
   @media(max-width:900px){ .team-grid{grid-template-columns:repeat(2,1fr)} }
   @media(max-width:600px){ .team-grid{grid-template-columns:1fr} }
-  
   .team-card{
     border:1px solid var(--line);
     border-radius:8px;
@@ -165,11 +148,8 @@
     gap:8px;
   }
   .team-card h4{margin:0 0 4px 0; font-size:18px; line-height:1.25; font-weight:600}
-  /* was 13px -> 14px */
   .team-card .links{font-size:14px}
-  /* was 15px -> 16px */
   .team-card .inst{font-size:16px}
-  /* was 15px -> 16px */
   .team-card .desc{font-size:16px; margin:4px 0 0}
   .team-card .email a{word-break:break-all}
 
@@ -178,87 +158,50 @@
   .seminars{
     border:1px solid var(--line);
     border-radius:8px;
-    overflow:auto;            /* vertical + horizontal scroll */
-    max-height:320px;         /* adjust to taste */
+    overflow-y:auto;           /* vertical scroll only */
+    max-height:320px;
     background:#fff;
   }
   table.seminars-table{
     border-collapse:collapse;
     width:100%;
-    min-width:620px;          /* allows horizontal scroll on narrow screens */
   }
   .seminars-table th,
   .seminars-table td{
-    /* was 15px -> 16px */
     padding:10px;
     border-bottom:1px solid var(--line);
     text-align:left;
     vertical-align:top;
     font-size:16px;
     word-break:break-word;
+    white-space:normal;
   }
   .seminars-table th {
     background:#f9f9f9;
     font-weight:700;
-    position:sticky;  /* stick to top of scroll box */
+    position:sticky;
     top:0;
     z-index:2;
-    text-align:left;  /* force left alignment */
+    text-align:left;
   }
   .seminars-table th:nth-child(1),
   .seminars-table td:nth-child(1){
-    white-space: nowrap;   /* no line breaks */
-    word-break: normal;    /* don’t force breaks inside names */
+    white-space:nowrap;
+    word-break:normal;
   }
   .seminars-table th:nth-child(3),
-  .seminars-table td:nth-child(3) {
-    width:100px;              /* prevent wrapping */
+  .seminars-table td:nth-child(3){
+    width:100px;
     white-space:nowrap;
   }
-  /* Mobile: stack each seminar row (no horizontal scroll) */
-  @media (max-width: 680px){
-    .seminars{ max-height:none; }                 /* let it grow naturally on phones */
-    table.seminars-table{ min-width:0; border:0; width:100%; }
-    .seminars-table thead{ display:none; }        /* hide header on mobile */
-  
-    .seminars-table tr{
-      display:block;
-      border-bottom:1px solid var(--line);
-    }
-  
+
+  /* Mobile adjustments: smaller font in seminars table */
+  @media (max-width:680px){
     .seminars-table th,
     .seminars-table td{
-      display:block;               /* stack cells vertically */
-      border-bottom:0;
-      padding:10px 12px 6px;
-      font-size:16px;
-      text-align:left;
-      white-space:normal;          /* allow wrapping */
-      word-break:break-word;
-    }
-  
-    /* Labels from CSS only (one per column) */
-    .seminars-table td:nth-child(1)::before{
-      content:"Seminar speaker";
-      display:block; font-size:14px; font-weight:600; color:var(--muted); margin-bottom:2px;
-    }
-    .seminars-table td:nth-child(2)::before{
-      content:"Topic";
-      display:block; font-size:14px; font-weight:600; color:var(--muted); margin-bottom:2px;
-    }
-    .seminars-table td:nth-child(3)::before{
-      content:"Year";
-      display:block; font-size:14px; font-weight:600; color:var(--muted); margin-bottom:2px;
-    }
-  
-    /* Ignore desktop column width rules on mobile */
-    .seminars-table th:nth-child(3),
-    .seminars-table td:nth-child(3){
-      width:auto; white-space:normal;
+      font-size:14px;
     }
   }
-
-
 
   /* Footer */
   footer{border-top:1px solid var(--line);margin-top:32px}
@@ -444,7 +387,6 @@
           </tr>
         </thead>
         <tbody id="seminars-tbody">
-          <!-- (content unchanged; ordered 2021 → 2025) -->
           <!-- 2021 -->
           <tr data-year="2021"><td>Jean Feydy</td><td>Modelling protein surfaces</td><td>2021</td></tr>
           <tr data-year="2021"><td>Gustav Lindved</td><td>Predicting protein thermostability using language models.</td><td>2021</td></tr>
@@ -547,9 +489,6 @@
         </tbody>
       </table>
     </div>
-
-    <!-- (kept as-is; unused for your table layout but harmless) -->
-    <div class="seminar-cards" id="seminars-cards" aria-hidden="true"></div>
   </section>
 
   <!-- Events -->
