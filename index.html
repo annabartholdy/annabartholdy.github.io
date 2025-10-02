@@ -183,6 +183,12 @@
     hyphens: none;
   }
 
+  /* Ensure padding is counted inside width so nothing gets clipped */
+  .seminars-table th,
+  .seminars-table td{
+    box-sizing: border-box;
+  }
+
   .seminars-table th {
     background:#f9f9f9;
     font-weight:700;
@@ -207,6 +213,10 @@
       overflow-y:auto;
       overflow-x:hidden;
       max-height:320px;
+    
+      /* NEW: reserve space for the scrollbar & add a touch of inner room */
+      scrollbar-gutter: stable both-edges; /* prevents text under/against scrollbar */
+      padding-right: 8px;                  /* nudges wrap to happen a bit earlier */
     }
   
     /* Stack table into "cards" on mobile */
@@ -231,11 +241,13 @@
     .seminars-table td {
       border:none;
       font-size:14px;
-      padding:6px 8px;
+      /* was: padding: 6px 8px; -> add extra right padding */
+      padding: 6px 16px 6px 10px;  /* top right bottom left */
       position:relative;
       text-align:left;
       max-width:100%;
     }
+
   
     .seminars-table td::before {
       content: attr(data-label);
