@@ -158,13 +158,14 @@
   .seminars{
     border:1px solid var(--line);
     border-radius:8px;
-    overflow-y:auto;           /* vertical scroll only */
+    overflow-y:auto;       /* vertical scroll only */
     max-height:320px;
     background:#fff;
   }
   table.seminars-table{
     border-collapse:collapse;
     width:100%;
+    table-layout:auto;     /* allow columns to shrink naturally */
   }
   .seminars-table th,
   .seminars-table td{
@@ -173,8 +174,8 @@
     text-align:left;
     vertical-align:top;
     font-size:16px;
-    word-break:break-word;
-    white-space:normal;
+    word-break:break-word; /* prevent overflow */
+    white-space:normal;    /* wrap text normally */
   }
   .seminars-table th {
     background:#f9f9f9;
@@ -186,23 +187,23 @@
   }
   .seminars-table th:nth-child(1),
   .seminars-table td:nth-child(1){
-    white-space:nowrap;
-    word-break:normal;
+    white-space:nowrap;    /* speaker stays one line */
   }
   .seminars-table th:nth-child(3),
   .seminars-table td:nth-child(3){
-    width:100px;
-    white-space:nowrap;
+    width:90px;            /* year column wide enough */
+    white-space:nowrap;    /* no wrapping for years */
   }
-
-  /* Mobile adjustments: smaller font in seminars table */
   @media (max-width:680px){
     .seminars-table th,
     .seminars-table td{
-      font-size:14px;
+      font-size:14px;      /* slightly smaller text on mobile */
+    }
+    .seminars-table th:nth-child(3),
+    .seminars-table td:nth-child(3){
+      width:70px;          /* narrower year col on small screens */
     }
   }
-
   /* Footer */
   footer{border-top:1px solid var(--line);margin-top:32px}
   .footer-graphic{padding:16px 0}
