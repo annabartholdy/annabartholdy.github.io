@@ -34,6 +34,7 @@
   }
   header .title{font-weight:700;font-size:50px;line-height:1.2}
   header .subtitle{font-weight:600;margin-top:6px;font-size:32px}
+  header .brand-logo{display:block;margin:12px auto 0}
 
   /* Base type */
   h1,h2,h3{line-height:1.25}
@@ -131,6 +132,31 @@
   table.std{border-collapse:collapse;width:100%;margin:8px 0 18px}
   .std th,.std td{height: 40px;font-size: 15px;padding:10px 10px 10px 0;vertical-align:top;border-bottom:1px solid var(--line)}
   .std th{height: 40px;font-size: 18px;font-weight:700;text-align:left}
+
+  /* Team cards (responsive like Events) */
+  .team-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:12px;
+  }
+  @media(max-width:900px){ .team-grid{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:600px){ .team-grid{grid-template-columns:1fr} }
+  
+  .team-card{
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:16px;
+    background:#fff;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .team-card h4{margin:0 0 4px 0; font-size:18px; line-height:1.25}
+  .team-card .links{font-size:13px}
+  .team-card .inst{font-size:15px}
+  .team-card .desc{font-size:15px; margin:4px 0 0}
+  .team-card .email a{word-break:break-all}
   
   /* Footer */
   footer{border-top:1px solid var(--line);margin-top:32px}
@@ -148,7 +174,7 @@
     <div>
       <div class="title">Center for Basic Machine Learning Research in Life Science</div>
       <div class="subtitle">Machine Learning Research in Life Science</div>
-      <img src="MLLS_logo.png" alt="MLLS logo" width="200" align="left">
+      <img src="MLLS_logo.png" alt="MLLS logo" width="200" class="brand-logo">
     </div>
   </div>
 </header>
@@ -231,19 +257,75 @@
   </ol>
 
   <h3>MLLS Team</h3>
-  <table class="std">
-    <thead>
-      <tr><th>Name and title</th><th>Institution</th><th>Description</th><th>email</th></tr>
-    </thead>
-    <tbody>
-      <tr><td width="27%">Professor Ole Winther, PI<p style="font-size: 12px;"><a href="https://scholar.google.com/citations?user=7VAwhzUAAAAJ&hl=da">Google Scholar</a> | <a href="https://olewinther.github.io/">Personal Research Page</a></p></td><td width="20%">University of Copenhagen and Technical University of Denmark</td><td width="38%">Hierarchical generative models, approximative inference, NLP, gene regulation and biological sequence analysis and foundation models</td><td width="15%">ole.winther@bio.ku.dk</td></tr>
-      <tr><td>Professor Anders Krogh, co-PI<p style="font-size: 12px;"><a href="https://scholar.google.com/citations?hl=da&user=-vGMjmwAAAAJ">Google Scholar</a> | <a href="https://researchprofiles.ku.dk/en/persons/anders-krogh">Personal Research Page</a></p></td><td>University of Copenhagen</td><td>Representation learning for gene expression data and DNA sequences. Machine learning in bioinformatics.</td><td>akrogh@di.ku.dk</td></tr>
-      <tr><td>Professor Wouter Boomsma, co-PI<p style="font-size: 12px;"><a href="https://scholar.google.com/citations?hl=da&user=EwqU_jsAAAAJ">Google Scholar</a> | <a href="https://ku-bioml.github.io/">Personal Research Page</a></p></td><td>University of Copenhagen</td><td>Sequence modelling, protein representation learning, Bayesian inference (Markov chain Monte Carlo).</td><td>wb@di.ku.dk</td></tr>
-      <tr><td>Professor Aasa Feragen, co-PI<p style="font-size: 12px;"><a href="https://scholar.google.com/citations?hl=da&user=MNDVpoUAAAAJ">Google Scholar</a> | <a href="https://www2.compute.dtu.dk/~afhar/">Personal Research Page</a></p></td><td>Technical University of Denmark</td><td>Geometric modeling, machine learning for biomedical imaging, structured data (trees, networks, …)</td><td>afhar@dtu.dk</td></tr>
-      <tr><td>Associate Professor Jes Frellsen, co-PI<p style="font-size: 12px;"><a href="https://scholar.google.com/citations?hl=da&user=Yj2sBWkAAAAJ">Google Scholar</a> | <a href="https://frellsen.org/">Personal Research Page</a></p></td><td>Technical University of Denmark</td><td>Deep generative models, missing values, Bayesian modeling, approximate inference.</td><td>jefr@dtu.dk</td></tr>
-      <tr><td>Professor Søren Hauberg, co-PI<p style="font-size: 12px;"><a href="https://scholar.google.com/citations?hl=da&user=M1fMGOMAAAAJ">Google Scholar</a> | <a href="https://www2.compute.dtu.dk/~sohau/">Personal Research Page</a></p></td><td>Technical University of Denmark</td><td>Random geometry, uncertainty quantification, deep generative models.</td><td>sohau@dtu.dk</td></tr>
-    </tbody>
-  </table>
+  <div class="team-grid">
+  
+    <article class="team-card">
+      <h4>Professor Ole Winther, PI</h4>
+      <div class="links">
+        <a href="https://scholar.google.com/citations?user=7VAwhzUAAAAJ&hl=da" target="_blank" rel="noopener">Google Scholar</a> |
+        <a href="https://olewinther.github.io/" target="_blank" rel="noopener">Personal Research Page</a>
+      </div>
+      <div class="inst">University of Copenhagen and Technical University of Denmark</div>
+      <p class="desc">Hierarchical generative models, approximative inference, NLP, gene regulation and biological sequence analysis and foundation models</p>
+      <p class="email"><a href="mailto:ole.winther@bio.ku.dk">ole.winther@bio.ku.dk</a></p>
+    </article>
+  
+    <article class="team-card">
+      <h4>Professor Anders Krogh, co-PI</h4>
+      <div class="links">
+        <a href="https://scholar.google.com/citations?hl=da&user=-vGMjmwAAAAJ" target="_blank" rel="noopener">Google Scholar</a> |
+        <a href="https://researchprofiles.ku.dk/en/persons/anders-krogh" target="_blank" rel="noopener">Personal Research Page</a>
+      </div>
+      <div class="inst">University of Copenhagen</div>
+      <p class="desc">Representation learning for gene expression data and DNA sequences. Machine learning in bioinformatics.</p>
+      <p class="email"><a href="mailto:akrogh@di.ku.dk">akrogh@di.ku.dk</a></p>
+    </article>
+  
+    <article class="team-card">
+      <h4>Professor Wouter Boomsma, co-PI</h4>
+      <div class="links">
+        <a href="https://scholar.google.com/citations?hl=da&user=EwqU_jsAAAAJ" target="_blank" rel="noopener">Google Scholar</a> |
+        <a href="https://ku-bioml.github.io/" target="_blank" rel="noopener">Personal Research Page</a>
+      </div>
+      <div class="inst">University of Copenhagen</div>
+      <p class="desc">Sequence modelling, protein representation learning, Bayesian inference (Markov chain Monte Carlo).</p>
+      <p class="email"><a href="mailto:wb@di.ku.dk">wb@di.ku.dk</a></p>
+    </article>
+  
+    <article class="team-card">
+      <h4>Professor Aasa Feragen, co-PI</h4>
+      <div class="links">
+        <a href="https://scholar.google.com/citations?hl=da&user=MNDVpoUAAAAJ" target="_blank" rel="noopener">Google Scholar</a> |
+        <a href="https://www2.compute.dtu.dk/~afhar/" target="_blank" rel="noopener">Personal Research Page</a>
+      </div>
+      <div class="inst">Technical University of Denmark</div>
+      <p class="desc">Geometric modeling, machine learning for biomedical imaging, structured data (trees, networks, …)</p>
+      <p class="email"><a href="mailto:afhar@dtu.dk">afhar@dtu.dk</a></p>
+    </article>
+  
+    <article class="team-card">
+      <h4>Associate Professor Jes Frellsen, co-PI</h4>
+      <div class="links">
+        <a href="https://scholar.google.com/citations?hl=da&user=Yj2sBWkAAAAJ" target="_blank" rel="noopener">Google Scholar</a> |
+        <a href="https://frellsen.org/" target="_blank" rel="noopener">Personal Research Page</a>
+      </div>
+      <div class="inst">Technical University of Denmark</div>
+      <p class="desc">Deep generative models, missing values, Bayesian modeling, approximate inference.</p>
+      <p class="email"><a href="mailto:jefr@dtu.dk">jefr@dtu.dk</a></p>
+    </article>
+  
+    <article class="team-card">
+      <h4>Professor Søren Hauberg, co-PI</h4>
+      <div class="links">
+        <a href="https://scholar.google.com/citations?hl=da&user=M1fMGOMAAAAJ" target="_blank" rel="noopener">Google Scholar</a> |
+        <a href="https://www2.compute.dtu.dk/~sohau/" target="_blank" rel="noopener">Personal Research Page</a>
+      </div>
+      <div class="inst">Technical University of Denmark</div>
+      <p class="desc">Random geometry, uncertainty quantification, deep generative models.</p>
+      <p class="email"><a href="mailto:sohau@dtu.dk">sohau@dtu.dk</a></p>
+    </article>
+  
+  </div>
 
   <h3>Advisory Board</h3>
   <ul>
