@@ -157,6 +157,36 @@
   .team-card .inst{font-size:15px}
   .team-card .desc{font-size:15px; margin:4px 0 0}
   .team-card .email a{word-break:break-all}
+  /* Seminars: scrollable list (no table header) + mobile cards */
+  .seminars-wrap{margin-top:10px}
+  .seminars-head{margin:6px 0 8px;color:var(--muted);font-size:14px}
+  .seminars{
+    border:1px solid var(--line);
+    border-radius:8px;
+    overflow:auto;
+    max-height:320px; /* adjust height as you like */
+    background:#fff;
+  }
+  table.seminars-table{border-collapse:collapse;width:100%;min-width:620px}
+  .seminars-table td{
+    padding:10px;
+    border-bottom:1px solid var(--line);
+    text-align:left;
+    vertical-align:top;
+    font-size:15px;
+  }
+  
+  /* Mobile */
+  @media (max-width:680px){
+    .seminars{max-height:none}
+    table.seminars-table{display:none}
+    .seminar-cards{display:grid; gap:12px}
+    .seminar-card{
+      border:1px solid var(--line); border-radius:8px; padding:12px; background:#fff
+    }
+    .seminar-card .row{margin:4px 0}
+    .seminar-card .lbl{font-weight:700; margin-right:6px}
+  }
   
   /* Footer */
   footer{border-top:1px solid var(--line);margin-top:32px}
@@ -338,6 +368,129 @@
   <ul>
     <li>Lisbeth Borbye, PhD, University of Copenhagen — <a href="mailto:lisbeth.borbye@bio.ku.dk">lisbeth.borbye@bio.ku.dk</a></li>
   </ul>
+
+  <h2>Seminars</h2>
+  <section class="seminars-wrap" id="seminars">  
+    <!-- Scrollable table (desktop/tablet) -->
+    <div class="seminars" aria-label="Seminars list">
+      <table class="seminars-table" aria-describedby="seminars">
+        <thead>
+          <tr>
+            <th scope="col">Seminar speaker</th>
+            <th scope="col">Topic</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody id="seminars-tbody">
+          <!-- ===== MLLS Seminars (2021–2025) ===== -->
+  
+          <!-- 2021 -->
+          <tr data-year="2021"><td>Jean Feydy</td><td>Modelling protein surfaces</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Gustav Lindved</td><td>Predicting protein thermostability using language models.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Jakob Havtorn</td><td>Out-of-distribution testing for Hierarchical VAE.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Felix Teufel</td><td>Improved signal peptide prediction using protein language models.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Niels Bruun Ipsen</td><td>Not-MIWAE: Deep Generative Modelling with Missing not at Random Data.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Pola Schwöbel</td><td>Last Layer Marginal Likelihood for Invariance Learning.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Didrik Nielsen</td><td>SurVAE Flows: Surjections to Bridge the Gap between VAEs and Flows.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Kasra Arnavaz</td><td>Semi-supervised, Topology-Aware Segmentation of Tubular Structures from Live Imaging 3D Microscopy.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Roshan Rao</td><td>MSA Transformers for protein sequences.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Lars Kai Hansen</td><td>Values in AI.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Jonas Busk</td><td>Calibrated Uncertainty for Molecular Property Prediction.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Frederik Warburg</td><td>Bayesian Triplet loss.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Veronika Cheplygina</td><td>How our publication traditions hinder efficient discovery.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Eli Weinstein</td><td>Latent alignment as a replacement for multiple sequence alignment.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Giorgio Giannone</td><td>Few-Shot Generative Models.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Eli Weinstein</td><td>A structured observation distribution for biological sequence prediction.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Arnor Sigurdsson</td><td>Deep integrative models for large-scale human genomics.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Pablo Moreno-Muñoz</td><td>Gaussian processes.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Chris Sander</td><td>Machine learning for hard biological problems — three examples.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Kresten Lindorff-Larsen</td><td>Perspective on Alphafold 2 and remaining problems.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Albert Jelke Kooistra</td><td>Understanding drug selectivity and individual responses.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Kristoffer Stensbo-Smidt</td><td>Flow-transformed Gaussian processes.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Eike Petersen</td><td>Responsible and Regulatory Conform ML for Medicine.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Guan Wang</td><td>Graph2Graph Learning with Conditional Autoregressive Models.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Enzo Ferrante</td><td>Gender bias in X-ray classifiers.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Germans Savcisens</td><td>Life2Vec: Transformers for behavior representation.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>George Papamakarios</td><td>Normalizing flows for atomic solids.</td><td>2021</td></tr>
+          <tr data-year="2021"><td>Markus Heinonen</td><td>Low-rank Bayesian neural networks.</td><td>2021</td></tr>
+  
+          <!-- 2022 -->
+          <tr data-year="2022"><td>Cong Geng</td><td>Bounds all around: training energy-based models with bidirectional bounds.</td><td>2022</td></tr>
+          <tr data-year="2022"><td>Simon Bartels</td><td>How much data do we need?</td><td>2022</td></tr>
+          <tr data-year="2022"><td>Viktoria Schuster</td><td>The deep generative decoder: a minimum viable model.</td><td>2022</td></tr>
+          <tr data-year="2022"><td>Simon Olsson</td><td>Machine Learning for Molecular Dynamics of Proteins.</td><td>2022</td></tr>
+          <tr data-year="2022"><td>Damien Garreau</td><td>What does LIME really see in images?</td><td>2022</td></tr>
+          <tr data-year="2022"><td>Ragnhild Ørbæk Laursen</td><td>NMF for somatic mutations in cancer genomics.</td><td>2022</td></tr>
+          <tr data-year="2022"><td>Agustinus Kristiadi</td><td>Low-Cost Bayesian Methods for Fixing Overconfidence.</td><td>2022</td></tr>
+          <tr data-year="2022"><td>Jes Frellsen</td><td>How to deal with missing data in supervised deep learning?</td><td>2022</td></tr>
+          <tr data-year="2022"><td>Ole Winther</td><td>DeepTMHMM: Deep Learning for Transmembrane Topology Prediction.</td><td>2022</td></tr>
+          <tr data-year="2022"><td>Anders Krogh</td><td>Scaling issues in maximum likelihood estimation.</td><td>2022</td></tr>
+          <tr data-year="2022"><td>Beau Coker</td><td>Wide Mean-Field Variational BNNs Ignore the Data.</td><td>2022</td></tr>
+          <tr data-year="2022"><td>Nicholas Kramer</td><td>A probabilistic perspective on numerical solution of differential equations.</td><td>2022</td></tr>
+          <tr data-year="2022"><td>Pascal Notin</td><td>Disease variant prediction with deep generative models.</td><td>2022</td></tr>
+          <tr data-year="2022"><td>Nikolaj Thams</td><td>Robustness to dataset shift.</td><td>2022</td></tr>
+          <tr data-year="2022"><td>Siavash Bigdeli</td><td>Deep Statistical Image Modeling.</td><td>2022</td></tr>
+          <tr data-year="2022"><td>Mark van der Wilk</td><td>Meaningful Metrics for Probabilistic Predictions.</td><td>2022</td></tr>
+          <tr data-year="2022"><td>Marco Miani</td><td>Laplacian Autoencoders for Stochastic Representations.</td><td>2022</td></tr>
+          <tr data-year="2022"><td>Theo Karaletsos</td><td>Black-box coreset variational inference.</td><td>2022</td></tr>
+          <tr data-year="2022"><td>Raghavendra Selvan</td><td>On the Carbon Footprint of Deep Learning.</td><td>2022</td></tr>
+          <tr data-year="2022"><td>Sebastian Weichwald</td><td>Causal Models on the Brink.</td><td>2022</td></tr>
+          <tr data-year="2022"><td>Victor García Satorras</td><td>Equivariant Diffusion for Molecule Generation in 3D.</td><td>2022</td></tr>
+  
+          <!-- 2023 -->
+          <tr data-year="2023"><td>Yogesh Verma</td><td>Modular Flows: Differential Molecular Generation.</td><td>2023</td></tr>
+          <tr data-year="2023"><td>Andrew White</td><td>Explaining molecular properties with natural language. / Deep learning for molecular design with few data points.</td><td>2023</td></tr>
+          <tr data-year="2023"><td>Marloes Arts</td><td>Diffusion Models and Force Fields for Coarse-Grained MD.</td><td>2023</td></tr>
+          <tr data-year="2023"><td>Stefan Sommer</td><td>Stochastic morphometry and sampling of conditioned stochastic processes.</td><td>2023</td></tr>
+          <tr data-year="2023"><td>Rocío Mercado</td><td>Deep generative models for biomolecular engineering.</td><td>2023</td></tr>
+          <tr data-year="2023"><td>Ignacio Peis</td><td>Missing Data Imputation and HyperGenerators.</td><td>2023</td></tr>
+          <tr data-year="2023"><td>Ola Rønning</td><td>Probabilistic mixture model approximation with Stein mixtures.</td><td>2023</td></tr>
+          <tr data-year="2023"><td>Martin Jørgensen</td><td>Bézier Gaussian Processes.</td><td>2023</td></tr>
+          <tr data-year="2023"><td>Pierre-Alexandre Mattei</td><td>Are ensembles getting better all the time?</td><td>2023</td></tr>
+          <tr data-year="2023"><td>Frederikke Marin</td><td>I Can’t Believe It’s Not Better.</td><td>2023</td></tr>
+          <tr data-year="2023"><td>Søren Hauberg</td><td>All Layers Marginal Likelihood Training with Fully Correlated Linearized Laplace Approximations.</td><td>2023</td></tr>
+          <tr data-year="2023"><td>Mingyu Kim</td><td>Enhancing Neural Radiance Fields with Regularization.</td><td>2023</td></tr>
+          <tr data-year="2023"><td>Antoine Wehenkel</td><td>Simulation-based Inference for Cardiovascular Models.</td><td>2023</td></tr>
+  
+          <!-- 2024 -->
+          <tr data-year="2024"><td>Sussane Ditlevsen</td><td>Warning of a collapse of the Atlantic overturning circulation.</td><td>2024</td></tr>
+          <tr data-year="2024"><td>Wessel Bruinsma</td><td>Autoregressive Conditional Neural Processes.</td><td>2024</td></tr>
+          <tr data-year="2024"><td>Oliver Stegle</td><td>Enhancing human genetics with new computational tools and single-cell sequencing.</td><td>2024</td></tr>
+          <tr data-year="2024"><td>Gabriel Niels Damsholt</td><td>Uncertainty Estimation for DNNs via SDEs.</td><td>2024</td></tr>
+          <tr data-year="2024"><td>Lasse Blaabjerg</td><td>Protein variant effect prediction using ML.</td><td>2024</td></tr>
+          <tr data-year="2024"><td>Sindy Loewe</td><td>Rotating Features for Object Discovery.</td><td>2024</td></tr>
+          <tr data-year="2024"><td>Berian James</td><td>Scalable physical inference with hypernetworks.</td><td>2024</td></tr>
+          <tr data-year="2024"><td>Matthias Bauer</td><td>High-performance low-complexity neural compression.</td><td>2024</td></tr>
+          <tr data-year="2024"><td>Carl Hvarfner</td><td>Vanilla Bayesian Optimization in high dimensions.</td><td>2024</td></tr>
+          <tr data-year="2024"><td>Frederikke Isa Marin & Felix Teufel</td><td>BEND: Benchmarking DNA Language Models.</td><td>2024</td></tr>
+          <tr data-year="2024"><td>Joris Fournel</td><td>Medical image segmentation quality control.</td><td>2024</td></tr>
+          <tr data-year="2024"><td>Michaela Areti Zervou</td><td>Protein Sequence Classification and Generation.</td><td>2024</td></tr>
+          <tr data-year="2024"><td>Marcelo Hartmann</td><td>Warped Geometric Information in optimization.</td><td>2024</td></tr>
+          <tr data-year="2024"><td>Joakim Edin</td><td>XAI, medical coding, and EHRs.</td><td>2024</td></tr>
+          <tr data-year="2024"><td>Filip Tronarp</td><td>Robust Cholesky Discretization of Gauss-Markov models.</td><td>2024</td></tr>
+          <tr data-year="2024"><td>Ira Ktena</td><td>Promises and perils of AI innovation in healthcare.</td><td>2024</td></tr>
+          <tr data-year="2024"><td>Karthik Bharath</td><td>Rolled Gaussian process models for curves on manifolds.</td><td>2024</td></tr>
+          <tr data-year="2024"><td>Christian Igel</td><td>Bayesian vs. PAC-Bayesian DNN Ensembles.</td><td>2024</td></tr>
+          <tr data-year="2024"><td>Henry Moss</td><td>Return of the Latent Space Cowboys: rethinking VAEs in Bayesian Optimisation.</td><td>2024</td></tr>
+          <tr data-year="2024"><td>Kristoffer Wickstrøm</td><td>Uncertainty estimation in representation learning explainability.</td><td>2024</td></tr>
+  
+          <!-- 2025 -->
+          <tr data-year="2025"><td>Peter Mørch Groth</td><td>Kermut: Composite kernel regression for protein variant effects.</td><td>2025</td></tr>
+          <tr data-year="2025"><td>Hrittik Roy</td><td>Reparameterization invariance in approximate Bayesian inference.</td><td>2025</td></tr>
+          <tr data-year="2025"><td>Melih Kandemir</td><td>Embodied Estimators for Full Autonomy.</td><td>2025</td></tr>
+          <tr data-year="2025"><td>Louis Ohl</td><td>A tutorial on discriminative clustering and mutual information.</td><td>2025</td></tr>
+          <tr data-year="2025"><td>Beatrix M. G. Nielsen</td><td>Challenges in explaining representational similarity.</td><td>2025</td></tr>
+          <tr data-year="2025"><td>Søren Wengel Mogensen</td><td>Causal discovery and weak equivalence of graphs.</td><td>2025</td></tr>
+          <tr data-year="2025"><td>Eli N. Weinstein</td><td>Causal Molecular Design.</td><td>2025</td></tr>
+          <tr data-year="2025"><td>Johnny Xi</td><td>Causal Velocity Models: Counterfactual Transports via Score Estimation.</td><td>2025</td></tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Mobile card view -->
+    <div class="seminar-cards" id="seminars-cards" aria-hidden="true"></div>
+  </section>
+
 
   <!-- Events - EDIT AND INSERT EVENTS HERE -->
   <h2>Events</h2>
