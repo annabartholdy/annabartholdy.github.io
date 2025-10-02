@@ -175,9 +175,15 @@
     text-align:left;
     vertical-align:top;
     font-size:16px;
-    word-break:break-word; /* prevent overflow */
-    white-space:normal;    /* wrap text normally */
+    /* Prefer natural wrapping; break long tokens only when needed */
+    white-space:normal;
+    word-break:normal;
+    overflow-wrap:break-word;
+    hyphens:auto;
+    -webkit-hyphens:auto;
+    -ms-hyphens:auto;
   }
+
   .seminars-table th {
     background:#f9f9f9;
     font-weight:700;
@@ -197,62 +203,73 @@
   }
   /* Mobile stacked layout for seminars table */
   @media (max-width:680px){
+    .seminars{
+      /* keep vertical scrolling only; no horizontal overflow */
+      overflow-y:auto;
+      overflow-x:hidden;
+      max-height:320px;
+    }
+  
+    /* Stack table into "cards" on mobile */
     .seminars-table,
     .seminars-table thead,
     .seminars-table tbody,
     .seminars-table th,
     .seminars-table td,
     .seminars-table tr {
-      display: block;
-      width: 100%;
+      display:block;
+      width:100%;
     }
   
-    .seminars-table thead {
-      display: none; /* hide the header */
-    }
+    .seminars-table thead { display:none; }
   
     .seminars-table tr {
-      margin-bottom: 14px;
-      border-bottom: 2px solid var(--line);
-      padding-bottom: 10px;
+      margin-bottom:14px;
+      border-bottom:2px solid var(--line);
+      padding-bottom:10px;
     }
   
     .seminars-table td {
-      border: none;
-      font-size: 14px;
-      padding: 6px 8px;
-      position: relative;
-      text-align: left;
+      border:none;
+      font-size:14px;
+      padding:6px 8px;
+      position:relative;
+      text-align:left;
+      max-width:100%;
     }
   
     .seminars-table td::before {
       content: attr(data-label);
-      font-weight: 600;
-      display: block;
-      margin-bottom: 2px;
-      color: var(--muted);
-      font-size: 13px;
+      font-weight:600;
+      display:block;
+      margin-bottom:2px;
+      color:var(--muted);
+      font-size:13px;
     }
-    
-    /* Ensure columns can wrap on mobile */
+  
+    /* Ensure clean wrapping (no cut-off, no mid-word chops) */
     .seminars-table td,
     .seminars-table th {
-      white-space: normal !important;
-      overflow-wrap: anywhere;   /* handles very-long words/URLs */
-      word-break: break-word;
-    }    
-    
-    /* Explicitly override the desktop nowrap on col 1 and 3 */
-    .seminars-table td:nth-child(1),
-    .seminars-table td:nth-child(3) {
-      white-space: normal !important;
-      width: auto;               /* let them shrink/wrap */
+      white-space:normal !important;
+      word-break:normal;
+      overflow-wrap:break-word;
+      hyphens:auto;
+      -webkit-hyphens:auto;
+      -ms-hyphens:auto;
+      max-width:100%;
+      overflow:visible;
     }
-
-    .seminars-table { table-layout: fixed; }  /* helps wrapping on narrow screens */
-    
+  
+    /* Override desktop nowrap on speaker and year */
+    .seminars-table td:nth-child(1),
+    .seminars-table td:nth-child(3){
+      white-space:normal !important;
+      width:auto;
+    }
+  
+    /* IMPORTANT: remove fixed algorithm on mobile so wrapping is natural */
+    .seminars-table { table-layout:auto; }
   }
-
 
 
   /* Footer */
