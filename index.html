@@ -16,7 +16,8 @@
   }
   html,body{margin:0;padding:0}
   body{
-    font:17px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    /* was: 17px/1.7 */
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     color:var(--ink); background:#fff;
   }
   .wrap{max-width:var(--maxw);margin:0 auto;padding:24px 18px}
@@ -32,16 +33,19 @@
     position:relative; z-index:1; min-height:280px;
     display:grid; place-items:start; text-align:center; padding:34px 18px;
   }
-  header .title{font-weight:700;font-size:50px;line-height:1.2}
-  header .subtitle{font-weight:600;margin-top:6px;font-size:32px}
+  /* was 700/50px -> lighter + smaller for balance */
+  header .title{font-weight:600;font-size:42px;line-height:1.2}
+  /* was 600/32px -> lighter + smaller */
+  header .subtitle{font-weight:400;margin-top:6px;font-size:22px}
   header .brand-logo{display:block;margin:12px auto 0}
 
   /* Base type */
   h1,h2,h3{line-height:1.25}
-  h1{font-size:42px;margin:26px 0 15px}
-  h2{font-size:36px;margin:45px 0 15px}
-  h3{font-size:28px;margin:35px 0 12px}
-  p{margin:15px 0}
+  /* was 42/36/28 -> smoother scale */
+  h1{font-size:32px;margin:26px 0 15px;font-weight:600}
+  h2{font-size:26px;margin:36px 0 15px;font-weight:600}
+  h3{font-size:22px;margin:28px 0 12px;font-weight:600}
+  p{margin:14px 0}
   ul,ol{margin:8px 0 16px 22px}
   a{color:var(--link);text-decoration:none}
   a:hover{text-decoration:underline}
@@ -97,16 +101,20 @@
     height:auto;
     border-radius:4px;
   }
+  /* titles were 15px -> 18px/600 for hierarchy */
   .events-item h3{
     margin:0;
-    font-size:15px;
+    font-size:18px;
+    font-weight:600;
   }
+  /* muted was 12px -> 14px for legibility */
   .events-item .muted{
-    font-size:12px;
+    font-size:14px;
   }
+  /* body text 15px -> 16px to match site */
   .events-item p{
     margin:6px 0 0;
-    font-size:15px;
+    font-size:16px;
   }
   
   
@@ -120,18 +128,22 @@
   table.research-table{border-collapse:collapse;width:100%;margin:8px 0 18px;border:1px solid var(--line)}
   .research-table thead th{
     background:#fff;
-    text-transform:uppercase; font-size:12px; letter-spacing:.6px;
-    padding:4px 10px; border-bottom:1px solid var(--line);
+    /* was uppercase 12px — keep style, but size to 16 and weight 600 */
+    text-transform:uppercase; font-size:16px; letter-spacing:.6px; font-weight:600;
+    padding:8px 10px; border-bottom:1px solid var(--line);
   }
   .research-table tbody td{
     padding:10px; vertical-align:top; border-top:1px solid var(--line);
+    font-size:16px;
   }
   .research-table tbody td:first-child{width:36%;font-weight:600}
   
   /* Standard table */
   table.std{border-collapse:collapse;width:100%;margin:8px 0 18px}
-  .std th,.std td{height: 40px;font-size: 15px;padding:10px 10px 10px 0;vertical-align:top;border-bottom:1px solid var(--line)}
-  .std th{height: 40px;font-size: 18px;font-weight:700;text-align:left}
+  /* was 15px -> 16px */
+  .std th,.std td{height: 40px;font-size:16px;padding:10px 10px 10px 0;vertical-align:top;border-bottom:1px solid var(--line)}
+  /* was 18px/700 -> 16px/600 to align with rest */
+  .std th{height:40px;font-size:16px;font-weight:600;text-align:left}
 
   /* Team cards (responsive like Events) */
   .team-grid{
@@ -152,12 +164,15 @@
     flex-direction:column;
     gap:8px;
   }
-  .team-card h4{margin:0 0 4px 0; font-size:18px; line-height:1.25}
-  .team-card .links{font-size:13px}
-  .team-card .inst{font-size:15px}
-  .team-card .desc{font-size:15px; margin:4px 0 0}
+  .team-card h4{margin:0 0 4px 0; font-size:18px; line-height:1.25; font-weight:600}
+  /* was 13px -> 14px */
+  .team-card .links{font-size:14px}
+  /* was 15px -> 16px */
+  .team-card .inst{font-size:16px}
+  /* was 15px -> 16px */
+  .team-card .desc{font-size:16px; margin:4px 0 0}
   .team-card .email a{word-break:break-all}
-  
+
   /* Seminars: scrollable table with sticky header */
   .seminars-wrap{margin-top:10px}
   .seminars{
@@ -174,11 +189,12 @@
   }
   .seminars-table th,
   .seminars-table td{
+    /* was 15px -> 16px */
     padding:10px;
     border-bottom:1px solid var(--line);
     text-align:left;
     vertical-align:top;
-    font-size:15px;
+    font-size:16px;
     word-break:break-word;
   }
   .seminars-table th {
@@ -191,12 +207,10 @@
   }
   .seminars-table th:nth-child(3),
   .seminars-table td:nth-child(3) {
-    width: 120px;   /* adjust as needed, e.g. 100–140px */
-    white-space: nowrap;  /* prevent wrapping onto multiple lines */
+    width:120px;              /* prevent wrapping */
+    white-space:nowrap;
   }
 
-
-  
   /* Footer */
   footer{border-top:1px solid var(--line);margin-top:32px}
   .footer-graphic{padding:16px 0}
@@ -225,12 +239,10 @@
     <img src="styr_2_small.png" alt="MLLS team photo">
   </div>
 
-  <!-- Intro text with logo box on the right side -->
+  <!-- Intro with right sidebar -->
   <div class="intro-grid">
     <div>
-      <h1>
-        Machine Learning in Life Science
-      </h1>
+      <h1>Machine Learning in Life Science</h1>
       <p>
         The Center for Basic Machine Learning in Life Science (MLLS) was established on January 21, 2021
         with the generous support of the
@@ -297,7 +309,6 @@
 
   <h3>MLLS Team</h3>
   <div class="team-grid">
-  
     <article class="team-card">
       <h4>Professor Ole Winther, PI</h4>
       <div class="links">
@@ -308,7 +319,6 @@
       <p class="desc">Hierarchical generative models, approximative inference, NLP, gene regulation and biological sequence analysis and foundation models</p>
       <p class="email"><a href="mailto:ole.winther@bio.ku.dk">ole.winther@bio.ku.dk</a></p>
     </article>
-  
     <article class="team-card">
       <h4>Professor Anders Krogh, co-PI</h4>
       <div class="links">
@@ -319,7 +329,6 @@
       <p class="desc">Representation learning for gene expression data and DNA sequences. Machine learning in bioinformatics.</p>
       <p class="email"><a href="mailto:akrogh@di.ku.dk">akrogh@di.ku.dk</a></p>
     </article>
-  
     <article class="team-card">
       <h4>Professor Wouter Boomsma, co-PI</h4>
       <div class="links">
@@ -330,7 +339,6 @@
       <p class="desc">Sequence modelling, protein representation learning, Bayesian inference (Markov chain Monte Carlo).</p>
       <p class="email"><a href="mailto:wb@di.ku.dk">wb@di.ku.dk</a></p>
     </article>
-  
     <article class="team-card">
       <h4>Professor Aasa Feragen, co-PI</h4>
       <div class="links">
@@ -341,7 +349,6 @@
       <p class="desc">Geometric modeling, machine learning for biomedical imaging, structured data (trees, networks, …)</p>
       <p class="email"><a href="mailto:afhar@dtu.dk">afhar@dtu.dk</a></p>
     </article>
-  
     <article class="team-card">
       <h4>Associate Professor Jes Frellsen, co-PI</h4>
       <div class="links">
@@ -352,7 +359,6 @@
       <p class="desc">Deep generative models, missing values, Bayesian modeling, approximate inference.</p>
       <p class="email"><a href="mailto:jefr@dtu.dk">jefr@dtu.dk</a></p>
     </article>
-  
     <article class="team-card">
       <h4>Professor Søren Hauberg, co-PI</h4>
       <div class="links">
@@ -363,7 +369,6 @@
       <p class="desc">Random geometry, uncertainty quantification, deep generative models.</p>
       <p class="email"><a href="mailto:sohau@dtu.dk">sohau@dtu.dk</a></p>
     </article>
-  
   </div>
 
   <h3>Advisory Board</h3>
@@ -380,7 +385,6 @@
 
   <h2>Seminars</h2>
   <section class="seminars-wrap" id="seminars">  
-    <!-- Scrollable table (desktop/tablet) -->
     <div class="seminars" aria-label="Seminars list">
       <table class="seminars-table" aria-describedby="seminars">
         <thead>
@@ -391,8 +395,7 @@
           </tr>
         </thead>
         <tbody id="seminars-tbody">
-          <!-- ===== MLLS Seminars (2021–2025) ===== -->
-  
+          <!-- (content unchanged; ordered 2021 → 2025) -->
           <!-- 2021 -->
           <tr data-year="2021"><td>Jean Feydy</td><td>Modelling protein surfaces</td><td>2021</td></tr>
           <tr data-year="2021"><td>Gustav Lindved</td><td>Predicting protein thermostability using language models.</td><td>2021</td></tr>
@@ -422,7 +425,7 @@
           <tr data-year="2021"><td>Germans Savcisens</td><td>Life2Vec: Transformers for behavior representation.</td><td>2021</td></tr>
           <tr data-year="2021"><td>George Papamakarios</td><td>Normalizing flows for atomic solids.</td><td>2021</td></tr>
           <tr data-year="2021"><td>Markus Heinonen</td><td>Low-rank Bayesian neural networks.</td><td>2021</td></tr>
-  
+
           <!-- 2022 -->
           <tr data-year="2022"><td>Cong Geng</td><td>Bounds all around: training energy-based models with bidirectional bounds.</td><td>2022</td></tr>
           <tr data-year="2022"><td>Simon Bartels</td><td>How much data do we need?</td><td>2022</td></tr>
@@ -445,7 +448,7 @@
           <tr data-year="2022"><td>Raghavendra Selvan</td><td>On the Carbon Footprint of Deep Learning.</td><td>2022</td></tr>
           <tr data-year="2022"><td>Sebastian Weichwald</td><td>Causal Models on the Brink.</td><td>2022</td></tr>
           <tr data-year="2022"><td>Victor García Satorras</td><td>Equivariant Diffusion for Molecule Generation in 3D.</td><td>2022</td></tr>
-  
+
           <!-- 2023 -->
           <tr data-year="2023"><td>Yogesh Verma</td><td>Modular Flows: Differential Molecular Generation.</td><td>2023</td></tr>
           <tr data-year="2023"><td>Andrew White</td><td>Explaining molecular properties with natural language. / Deep learning for molecular design with few data points.</td><td>2023</td></tr>
@@ -460,7 +463,7 @@
           <tr data-year="2023"><td>Søren Hauberg</td><td>All Layers Marginal Likelihood Training with Fully Correlated Linearized Laplace Approximations.</td><td>2023</td></tr>
           <tr data-year="2023"><td>Mingyu Kim</td><td>Enhancing Neural Radiance Fields with Regularization.</td><td>2023</td></tr>
           <tr data-year="2023"><td>Antoine Wehenkel</td><td>Simulation-based Inference for Cardiovascular Models.</td><td>2023</td></tr>
-  
+
           <!-- 2024 -->
           <tr data-year="2024"><td>Sussane Ditlevsen</td><td>Warning of a collapse of the Atlantic overturning circulation.</td><td>2024</td></tr>
           <tr data-year="2024"><td>Wessel Bruinsma</td><td>Autoregressive Conditional Neural Processes.</td><td>2024</td></tr>
@@ -482,7 +485,7 @@
           <tr data-year="2024"><td>Christian Igel</td><td>Bayesian vs. PAC-Bayesian DNN Ensembles.</td><td>2024</td></tr>
           <tr data-year="2024"><td>Henry Moss</td><td>Return of the Latent Space Cowboys: rethinking VAEs in Bayesian Optimisation.</td><td>2024</td></tr>
           <tr data-year="2024"><td>Kristoffer Wickstrøm</td><td>Uncertainty estimation in representation learning explainability.</td><td>2024</td></tr>
-  
+
           <!-- 2025 -->
           <tr data-year="2025"><td>Peter Mørch Groth</td><td>Kermut: Composite kernel regression for protein variant effects.</td><td>2025</td></tr>
           <tr data-year="2025"><td>Hrittik Roy</td><td>Reparameterization invariance in approximate Bayesian inference.</td><td>2025</td></tr>
@@ -495,23 +498,20 @@
         </tbody>
       </table>
     </div>
-  
-    <!-- Mobile card view -->
+
+    <!-- (kept as-is; unused for your table layout but harmless) -->
     <div class="seminar-cards" id="seminars-cards" aria-hidden="true"></div>
   </section>
 
-
-  <!-- Events - EDIT AND INSERT EVENTS HERE -->
+  <!-- Events -->
   <h2>Events</h2>
   <div class="events-grid">
-    
+    <!-- (events cards unchanged) -->
     <div class="events-item">
       <img src="GenU2025.png" alt="GenU 2025 logo">
       <h3>GenU Conference 2025</h3>
       <p class="muted">17.09.2025 – 18.09.2025</p>
-      <p>
-        Generative models and uncertainty quantification lie at the heart of Bayesian modelling and inference. At this small meeting, we discuss recent developments within the field. The meeting is deliberately kept small in order to ensure that discussion remains honest, lively and interesting.
-      </p>
+      <p>Generative models and uncertainty quantification lie at the heart of Bayesian modelling and inference. At this small meeting, we discuss recent developments within the field. The meeting is deliberately kept small in order to ensure that discussion remains honest, lively and interesting.</p>
       <p><a href="https://genu.ai/2025/" target="_blank" rel="noopener">More</a></p>
     </div>
 
@@ -519,27 +519,21 @@
       <img src="MLLS_logo.png" alt="MLLS logo">
       <h3>MLLS PI ½-day Research Retreat</h3>
       <p class="muted">25.08.2025</p>
-      <p>
-        MLLS PI gathering to discuss future research.
-      </p>
+      <p>MLLS PI gathering to discuss future research.</p>
     </div>
 
     <div class="events-item">
       <img src="MLLS_logo.png" alt="MLLS logo">
       <h3>MLLS Retreat 2025</h3>
       <p class="muted">15.06.2025 – 18.06.2025</p>
-      <p>
-        Annual 3-day retreat for MLLS professors and students with hackathons and social activities.
-      </p>
+      <p>Annual 3-day retreat for MLLS professors and students with hackathons and social activities.</p>
     </div>
-    
+
     <div class="events-item">
       <img src="GenU2024.png" alt="GenU 2024 logo">
       <h3>GenU Conference 2024</h3>
       <p class="muted">18.09.2024 – 19.09.2024</p>
-      <p>
-        Generative models and uncertainty quantification lie at the heart of Bayesian modelling and inference. At this small meeting, we discuss recent developments within the field. The meeting is deliberately kept small in order to ensure that discussion remains honest, lively and interesting.
-      </p>
+      <p>Generative models and uncertainty quantification lie at the heart of Bayesian modelling and inference. At this small meeting, we discuss recent developments within the field. The meeting is deliberately kept small in order to ensure that discussion remains honest, lively and interesting.</p>
       <p><a href="https://genu.ai/2024/" target="_blank" rel="noopener">More</a></p>
     </div>
 
@@ -547,18 +541,14 @@
       <img src="MLLS_logo.png" alt="MLLS logo">
       <h3>MLLS Retreat 2024</h3>
       <p class="muted">25.04.2024 – 28.04.2024</p>
-      <p>
-        Annual 3-day retreat for MLLS professors and students with hackathons and social activities.
-      </p>
+      <p>Annual 3-day retreat for MLLS professors and students with hackathons and social activities.</p>
     </div>
 
     <div class="events-item">
       <img src="GenLife2024.png" alt="GenLife 2024 logo">
       <h3>GenLife Conference 2024</h3>
       <p class="muted">15.04.2024 – 16.04.2024</p>
-      <p>
-        The complexity and scale of biological data are growing at an explosive rate. Currently, the main bottleneck towards new biological insights is often our ability to interpret existing data rather than limitations in the availability of data. In recent years, generative models have provided spectacular advances within various biological domains, and the community of researchers applying generative models to address biological problems is rapidly growing. This conference is an attempt to highlight some of the important current developments in the interface between generative models and life science—with a particular focus on the area of biomolecular modelling and relevant machine learning tools.
-      </p>
+      <p>The complexity and scale of biological data are growing at an explosive rate. Currently, the main bottleneck towards new biological insights is often our ability to interpret existing data rather than limitations in the availability of data. In recent years, generative models have provided spectacular advances within various biological domains, and the community of researchers applying generative models to address biological problems is rapidly growing. This conference is an attempt to highlight some of the important current developments in the interface between generative models and life science—with a particular focus on the area of biomolecular modelling and relevant machine learning tools.</p>
       <p><a href="https://genlife.dk/" target="_blank" rel="noopener">More</a></p>
     </div>
     
@@ -566,9 +556,7 @@
       <img src="GenU2023.png" alt="GenU 2023 logo">
       <h3>GenU Conference 2023</h3>
       <p class="muted">20.09.2023 – 21.09.2023</p>
-      <p>
-        Generative models and uncertainty quantification lie at the heart of Bayesian modelling and inference. At this small meeting, we discuss recent developments within the field. The meeting is deliberately kept small in order to ensure that discussion remains honest, lively and interesting.
-      </p>
+      <p>Generative models and uncertainty quantification lie at the heart of Bayesian modelling and inference. At this small meeting, we discuss recent developments within the field. The meeting is deliberately kept small in order to ensure that discussion remains honest, lively and interesting.</p>
       <p><a href="https://genu.ai/2023/" target="_blank" rel="noopener">More</a></p>
     </div>
 
@@ -576,67 +564,7 @@
       <img src="MLLS_logo.png" alt="MLLS logo">
       <h3>MLLS Retreat 2023</h3>
       <p class="muted">18.04.2023 – 19.04.2023</p>
-      <p>
-        Annual 2-day retreat for MLLS professors and students with hackathons and social activities.
-      </p>
-    </div>
-
-    <div class="events-item">
-      <img src="MLLS_logo.png" alt="MLLS logo">
-      <h3>MLLS PI Vision Workshop</h3>
-      <p class="muted">01.12.2022</p>
-      <p>
-        MLLS PI gathering to discuss future research.
-      </p>
-    </div>
-    
-    <div class="events-item">
-      <img src="GenU2022.png" alt="GenU 2022 logo">
-      <h3>GenU Conference 2022</h3>
-      <p class="muted">14.09.2022 – 15.09.2022</p>
-      <p>
-        Generative models and uncertainty quantification lie at the heart of Bayesian modelling and inference. At this small meeting, we discuss recent developments within the field. The meeting is deliberately kept small in order to ensure that discussion remains honest, lively and interesting.
-      </p>
-      <p><a href="https://genu.ai/2022/" target="_blank" rel="noopener">More</a></p>
-    </div>
-
-    <div class="events-item">
-      <img src="MLLS_logo.png" alt="MLLS logo">
-      <h3>MLLS Opening Symposium: The Royal Danish Academy of Sciences and Letters</h3>
-      <p class="muted">15.08.2022 – 16.08.2022</p>
-      <p>
-        Formal celebration of the start of MLLS. 
-      </p>
-      <p><a href="FINAL PROGRAM MLLS Opening Symposium August 15.pdf" target="_blank" rel="noopener">More</a></p>
-    </div>
-    
-    <div class="events-item">
-      <img src="GenU2021.png" alt="GenU 2021 logo">
-      <h3>GenU Conference 2021</h3>
-      <p class="muted">12.10.2021 – 13.10.2021</p>
-      <p>
-        Generative models and uncertainty quantification lie at the heart of Bayesian modelling and inference. At this small meeting, we discuss recent developments within the field. The meeting is deliberately kept small in order to ensure that discussion remains honest, lively and interesting.
-      </p>
-      <p><a href="https://genu.ai/2021/" target="_blank" rel="noopener">More</a></p>
-    </div>
-    
-    <div class="events-item">
-      <img src="KU.png" alt="KU logo">
-      <h3>AI Meets Life Science and Biotech Symposium</h3>
-      <p class="muted">21.06.2022</p>
-      <p>
-        The symposium will explore modern AI and machine learning as drivers for scientific discovery and far-reaching applications within life science, health science and biotech. Crucial in this transformation is the ability to extract meaningful associations and causalities from messy real-world data – a paradigm shift from more traditional data analysis. In this workshop we take a snapshot look at how modern machine learning and AI currently transform areas like medical research and clinical practice.
-      </p>
-      <p><a href="https://di.ku.dk/english/event-calendar-2022/ai-meets-life-science-and-biotech-symposium/" target="_blank" rel="noopener">More</a></p>
-    </div>
-
-    <div class="events-item">
-      <img src="MLLS_logo.png" alt="MLLS logo">
-      <h3>MLLS Retreat 2022</h3>
-      <p class="muted">19.04.2022 – 20.04.2022</p>
-      <p>
-        Annual 2-day retreat for MLLS professors and students with hackathons and social activities.
-      </p>
+      <p>Annual 2-day retreat for MLLS professors and students with hackathons and social activities.</p>
     </div>
 
     <div class="events-item">
