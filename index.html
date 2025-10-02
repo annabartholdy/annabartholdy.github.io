@@ -154,64 +154,48 @@
   .team-card .email a{word-break:break-all}
 
   /* Seminars: scrollable table with sticky header */
-  .seminars-wrap {
-    margin-top: 10px;
+  .seminars-wrap{margin-top:10px}
+  .seminars{
+    border:1px solid var(--line);
+    border-radius:8px;
+    overflow-y:auto;       /* vertical scroll only */
+    max-height:320px;
+    background:#fff;
   }
-  
-  .seminars {
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    background: #fff;
-    overflow-y: auto;    /* vertical scroll */
-    overflow-x: hidden;  /* no horizontal scroll */
-    max-height: 320px;   /* desktop limit */
+  table.seminars-table{
+    border-collapse:collapse;
+    width:100%;
+    table-layout:auto;     /* allow columns to shrink naturally */
   }
-  
-  table.seminars-table {
-    border-collapse: collapse;
-    width: 100%;
-    table-layout: fixed; /* prevents wide cells forcing horizontal scroll */
-  }
-  
   .seminars-table th,
-  .seminars-table td {
-    padding: 10px;
-    border-bottom: 1px solid var(--line);
-    text-align: left;
-    vertical-align: top;
-    font-size: 16px;
-    word-break: break-word; /* wrap long words */
-    white-space: normal;    /* allow wrapping */
+  .seminars-table td{
+    padding:10px;
+    border-bottom:1px solid var(--line);
+    text-align:left;
+    vertical-align:top;
+    font-size:16px;
+    word-break:break-word; /* prevent overflow */
+    white-space:normal;    /* wrap text normally */
   }
-  
   .seminars-table th {
-    background: #f9f9f9;
-    font-weight: 700;
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    text-align: left;
+    background:#f9f9f9;
+    font-weight:700;
+    position:sticky;
+    top:0;
+    z-index:2;
+    text-align:left;
   }
-  
   .seminars-table th:nth-child(1),
-  .seminars-table td:nth-child(1) {
-    white-space: nowrap;
-    word-break: normal;
+  .seminars-table td:nth-child(1){
+    white-space:nowrap;    /* speaker stays one line */
   }
-  
   .seminars-table th:nth-child(3),
-  .seminars-table td:nth-child(3) {
-    width: 100px;
-    white-space: nowrap;
+  .seminars-table td:nth-child(3){
+    width:90px;            /* year column wide enough */
+    white-space:nowrap;    /* no wrapping for years */
   }
-  
-  /* Mobile adjustments: stacked layout, no horizontal scroll */
-  @media (max-width: 680px) {
-    .seminars {
-      max-height: none;        /* expand naturally */
-      overflow-y: visible;     /* no inner scrollbars */
-    }
-  
+  /* Mobile stacked layout for seminars table */
+  @media (max-width:680px){
     .seminars-table,
     .seminars-table thead,
     .seminars-table tbody,
@@ -223,32 +207,34 @@
     }
   
     .seminars-table thead {
-      display: none; /* hide header */
+      display: none; /* hide the header */
     }
   
     .seminars-table tr {
-      margin-bottom: 15px;
+      margin-bottom: 14px;
       border-bottom: 2px solid var(--line);
+      padding-bottom: 10px;
     }
   
     .seminars-table td {
-      display: flex;
-      justify-content: space-between;
-      font-size: 14px; /* smaller for mobile */
+      border: none;
+      font-size: 14px;
+      padding: 6px 8px;
+      position: relative;
+      text-align: left;
     }
   
     .seminars-table td::before {
       content: attr(data-label);
-      font-weight: bold;
-      margin-right: 10px;
-      flex: 1;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 2px;
       color: var(--muted);
-    }
-  
-    .seminars-table td:last-child {
-      border-bottom: none;
+      font-size: 13px;
     }
   }
+
+
 
   /* Footer */
   footer{border-top:1px solid var(--line);margin-top:32px}
