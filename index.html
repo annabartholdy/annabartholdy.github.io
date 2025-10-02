@@ -215,6 +215,50 @@
     width:100px;              /* prevent wrapping */
     white-space:nowrap;
   }
+  /* Mobile: stack each seminar row (no horizontal scroll) */
+  @media (max-width: 680px){
+    .seminars{ max-height:none; }                 /* let it grow naturally on phones */
+    table.seminars-table{ min-width:0; border:0; width:100%; }
+    .seminars-table thead{ display:none; }        /* hide header on mobile */
+  
+    .seminars-table tr{
+      display:block;
+      border-bottom:1px solid var(--line);
+    }
+  
+    .seminars-table th,
+    .seminars-table td{
+      display:block;               /* stack cells vertically */
+      border-bottom:0;
+      padding:10px 12px 6px;
+      font-size:16px;
+      text-align:left;
+      white-space:normal;          /* allow wrapping */
+      word-break:break-word;
+    }
+  
+    /* Labels from CSS only (one per column) */
+    .seminars-table td:nth-child(1)::before{
+      content:"Seminar speaker";
+      display:block; font-size:14px; font-weight:600; color:var(--muted); margin-bottom:2px;
+    }
+    .seminars-table td:nth-child(2)::before{
+      content:"Topic";
+      display:block; font-size:14px; font-weight:600; color:var(--muted); margin-bottom:2px;
+    }
+    .seminars-table td:nth-child(3)::before{
+      content:"Year";
+      display:block; font-size:14px; font-weight:600; color:var(--muted); margin-bottom:2px;
+    }
+  
+    /* Ignore desktop column width rules on mobile */
+    .seminars-table th:nth-child(3),
+    .seminars-table td:nth-child(3){
+      width:auto; white-space:normal;
+    }
+  }
+
+
 
   /* Footer */
   footer{border-top:1px solid var(--line);margin-top:32px}
