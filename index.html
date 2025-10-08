@@ -32,7 +32,7 @@
     position:relative; z-index:1; min-height:280px;
     display:grid; place-items:start; text-align:center; padding:34px 18px;
   }
-  header .title{font-weight:600;font-size:42px;line-height:1.2}
+  header .title{font-weight:600;font-size:48px;line-height:1.2}
   header .subtitle{font-weight:400;margin-top:6px;font-size:22px}
   header .brand-logo{display:block;margin:12px auto 0}
 
@@ -158,7 +158,7 @@
   .seminars{
     border:1px solid var(--line);
     border-radius:8px;
-    overflow-y:auto;       /* vertical scroll only */
+    overflow-y:auto;       /* scroll */
     overflow-x:hidden;
     max-height:320px;
     background:#fff;
@@ -166,7 +166,7 @@
   table.seminars-table{
     border-collapse:collapse;
     width:100%;
-    table-layout:auto;     /* allow columns to shrink naturally */
+    table-layout:auto;
   }
   .seminars-table th,
   .seminars-table td{
@@ -176,14 +176,14 @@
     vertical-align:top;
     font-size:16px;
   
-    /* ONLY break at spaces; never split words */
+    /* break at spaces; don't split words */
     white-space: normal;
     word-break: keep-all;
     overflow-wrap: normal;
     hyphens: none;
   }
 
-  /* Ensure padding is counted inside width so nothing gets clipped */
+  /* inside padding */
   .seminars-table th,
   .seminars-table td{
     box-sizing: border-box;
@@ -199,27 +199,24 @@
   }
   .seminars-table th:nth-child(1),
   .seminars-table td:nth-child(1){
-    white-space:nowrap;    /* speaker stays one line */
+    white-space:nowrap; 
   }
   .seminars-table th:nth-child(3),
   .seminars-table td:nth-child(3){
-    width:90px;            /* year column wide enough */
-    white-space:nowrap;    /* no wrapping for years */
+    width:90px;
+    white-space:nowrap; 
   }
   /* Mobile stacked layout for seminars table */
   @media (max-width:680px){
     .seminars{
-      /* keep vertical scrolling only; no horizontal overflow */
       overflow-y:auto;
       overflow-x:hidden;
       max-height:320px;
-    
-      /* NEW: reserve space for the scrollbar & add a touch of inner room */
-      scrollbar-gutter: stable both-edges; /* prevents text under/against scrollbar */
-      padding-right: 8px;                  /* nudges wrap to happen a bit earlier */
+      scrollbar-gutter: stable both-edges; 
+      padding-right: 8px; 
     }
   
-    /* Stack table into "cards" on mobile */
+    /* Stack table on mobile with speaker, topic and year all in one "card" */
     .seminars-table,
     .seminars-table thead,
     .seminars-table tbody,
@@ -241,8 +238,7 @@
     .seminars-table td {
       border:none;
       font-size:14px;
-      /* was: padding: 6px 8px; -> add extra right padding */
-      padding: 6px 16px 6px 10px;  /* top right bottom left */
+      padding: 6px 16px 6px 10px;  /* top right bottom left - added padding on the right to avoid cut-off words */
       position:relative;
       text-align:left;
       max-width:100%;
@@ -270,14 +266,14 @@
     }
 
   
-    /* Override desktop nowrap on speaker and year */
+    /* override desktop nowrap on speaker and year */
     .seminars-table td:nth-child(1),
     .seminars-table td:nth-child(3){
       white-space:normal !important;
       width:auto;
     }
   
-    /* IMPORTANT: remove fixed algorithm on mobile so wrapping is natural */
+    /* remove fixed algorithm on mobile */
     .seminars-table { table-layout:auto; }
   }
 
